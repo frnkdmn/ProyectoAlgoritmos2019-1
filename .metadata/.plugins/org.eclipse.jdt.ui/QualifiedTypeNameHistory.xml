@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="semana06.JFrameTienda"/>
+<fullyQualifiedTypeName name="semana06.DialogoConsultar"/>
+<fullyQualifiedTypeName name="semana06.DialogoModificar"/>
+<fullyQualifiedTypeName name="semana06.DialogoListar"/>
 </qualifiedTypeNameHistroy>
