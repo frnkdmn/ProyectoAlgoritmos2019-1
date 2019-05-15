@@ -13,10 +13,8 @@ import javax.swing.JTextField;
 import javax.swing.DefaultComboBoxModel;
 import java.awt.event.ItemListener;
 import java.awt.event.ItemEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
-public class DialogoModificar extends JDialog implements ItemListener, ActionListener {
+public class DialogoModificar extends JDialog implements ItemListener {
 
 	private final JPanel contentPanel = new JPanel();
 	private JLabel lblNewLabel;
@@ -104,12 +102,10 @@ public class DialogoModificar extends JDialog implements ItemListener, ActionLis
 		txtMaterial.setColumns(10);
 		
 		btnCerrar = new JButton("Cerrar");
-		btnCerrar.addActionListener(this);
 		btnCerrar.setBounds(335, 20, 89, 23);
 		contentPanel.add(btnCerrar);
 		
 		btnGrabar = new JButton("Grabar");
-		btnGrabar.addActionListener(this);
 		btnGrabar.setBounds(335, 49, 89, 23);
 		contentPanel.add(btnGrabar);
 		
@@ -158,19 +154,5 @@ public class DialogoModificar extends JDialog implements ItemListener, ActionLis
 				txtTamaño.setText("" + JFrameTienda.tamaño4);
 				txtMaterial.setText("" + JFrameTienda.material4);		
 		}
-	}
-	public void actionPerformed(ActionEvent arg0) {
-		if (arg0.getSource() == btnGrabar) {
-			actionPerformedBtnGrabar(arg0);
-		}
-		if (arg0.getSource() == btnCerrar) {
-			actionPerformedBtnCerrar(arg0);
-		}
-	}
-	protected void actionPerformedBtnCerrar(ActionEvent arg0) {
-		dispose();
-	}
-	protected void actionPerformedBtnGrabar(ActionEvent arg0) {
-		
 	}
 }

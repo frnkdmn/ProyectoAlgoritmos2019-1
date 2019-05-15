@@ -102,15 +102,12 @@ public class JFrameTienda extends JFrame implements ActionListener {
 		menuBar.add(mnMantenimiento);
 		
 		mntmConsultarColchn = new JMenuItem("Consultar colch\u00F3n");
-		mntmConsultarColchn.addActionListener(this);
 		mnMantenimiento.add(mntmConsultarColchn);
 		
 		mntmModificarColchn = new JMenuItem("Modificar colch\u00F3n");
-		mntmModificarColchn.addActionListener(this);
 		mnMantenimiento.add(mntmModificarColchn);
 		
 		mntmListarColchones = new JMenuItem("Listar colchones");
-		mntmListarColchones.addActionListener(this);
 		mnMantenimiento.add(mntmListarColchones);
 		
 		mnVentas = new JMenu("Ventas");
@@ -150,33 +147,11 @@ public class JFrameTienda extends JFrame implements ActionListener {
 	
 
 	public void actionPerformed(ActionEvent arg0) {
-		if (arg0.getSource() == mntmListarColchones) {
-			actionPerformedMntmListarColchones(arg0);
-		}
-		if (arg0.getSource() == mntmModificarColchn) {
-			actionPerformedMntmModificarColchn(arg0);
-		}
-		if (arg0.getSource() == mntmConsultarColchn) {
-			actionPerformedMntmConsultarColchn(arg0);
-		}
 		if (arg0.getSource() == mntmSalir) {
 			actionPerformedMntmSalir(arg0);
 		}
 	}
 	protected void actionPerformedMntmSalir(ActionEvent arg0) {
 		System.exit(0);
-	}
-	protected void actionPerformedMntmConsultarColchn(ActionEvent arg0) {
-		DialogoConsultar dc = new DialogoConsultar();
-		dc.setVisible(true);
-	}
-	
-	protected void actionPerformedMntmModificarColchn(ActionEvent arg0) {
-		DialogoModificar dm = new DialogoModificar();
-		dm.setVisible(true);
-	}
-	protected void actionPerformedMntmListarColchones(ActionEvent arg0) {
-		DialogoListar dl = new DialogoListar();
-		dl.setVisible(true);
 	}
 }

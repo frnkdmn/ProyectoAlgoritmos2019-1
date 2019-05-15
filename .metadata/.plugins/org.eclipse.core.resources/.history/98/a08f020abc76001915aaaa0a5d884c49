@@ -11,12 +11,8 @@ import javax.swing.JLabel;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 import javax.swing.DefaultComboBoxModel;
-import java.awt.event.ItemListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
-public class DialogoModificar extends JDialog implements ItemListener, ActionListener {
+public class DialogoModificar extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
 	private JLabel lblNewLabel;
@@ -78,7 +74,6 @@ public class DialogoModificar extends JDialog implements ItemListener, ActionLis
 		contentPanel.add(lblNewLabel_4);
 		
 		cboMarca = new JComboBox();
-		cboMarca.addItemListener(this);
 		cboMarca.setModel(new DefaultComboBoxModel(new String[] {"Suavestar", "Springwall", "Paraiso", "Drimer", "Cisne"}));
 		cboMarca.setBounds(124, 21, 149, 20);
 		contentPanel.add(cboMarca);
@@ -104,73 +99,13 @@ public class DialogoModificar extends JDialog implements ItemListener, ActionLis
 		txtMaterial.setColumns(10);
 		
 		btnCerrar = new JButton("Cerrar");
-		btnCerrar.addActionListener(this);
 		btnCerrar.setBounds(335, 20, 89, 23);
 		contentPanel.add(btnCerrar);
 		
 		btnGrabar = new JButton("Grabar");
-		btnGrabar.addActionListener(this);
 		btnGrabar.setBounds(335, 49, 89, 23);
 		contentPanel.add(btnGrabar);
 		
-		// fijar Suavizar como predeterminado
-		txtPrecio.setText(""+ JFrameTienda.precio0);
-		txtGarantia.setText("" + JFrameTienda.garantia0);
-		txtTamaño.setText("" + JFrameTienda.tamaño0);
-		txtMaterial.setText("" + JFrameTienda.material0);
-	}
-	
-	public void itemStateChanged(ItemEvent arg0) {
-		if (arg0.getSource() == cboMarca) {
-			itemStateChangedCboMarca(arg0);
-		}
-	}
-	protected void itemStateChangedCboMarca(ItemEvent arg0) {
-		int item = cboMarca.getSelectedIndex();
-		switch(item) {
-			case 0:
-				txtPrecio.setText(""+ JFrameTienda.precio0);
-				txtGarantia.setText("" + JFrameTienda.garantia0);
-				txtTamaño.setText("" + JFrameTienda.tamaño0);
-				txtMaterial.setText("" + JFrameTienda.material0);
-				break;
-			case 1:
-				txtPrecio.setText("" + JFrameTienda.precio1);
-				txtGarantia.setText("" + JFrameTienda.garantia1);
-				txtTamaño.setText("" + JFrameTienda.tamaño1);
-				txtMaterial.setText("" + JFrameTienda.material1);
-				break;
-			case 2:
-				txtPrecio.setText("" + JFrameTienda.precio2);
-				txtGarantia.setText("" + JFrameTienda.garantia2);
-				txtTamaño.setText("" + JFrameTienda.tamaño2);
-				txtMaterial.setText("" + JFrameTienda.material2);
-				break;
-			case 3:
-				txtPrecio.setText("" + JFrameTienda.precio3);
-				txtGarantia.setText("" + JFrameTienda.garantia3);
-				txtTamaño.setText("" + JFrameTienda.tamaño3);
-				txtMaterial.setText("" + JFrameTienda.material3);
-				break;
-			default:
-				txtPrecio.setText("" + JFrameTienda.precio4);
-				txtGarantia.setText("" + JFrameTienda.garantia4);
-				txtTamaño.setText("" + JFrameTienda.tamaño4);
-				txtMaterial.setText("" + JFrameTienda.material4);		
-		}
-	}
-	public void actionPerformed(ActionEvent arg0) {
-		if (arg0.getSource() == btnGrabar) {
-			actionPerformedBtnGrabar(arg0);
-		}
-		if (arg0.getSource() == btnCerrar) {
-			actionPerformedBtnCerrar(arg0);
-		}
-	}
-	protected void actionPerformedBtnCerrar(ActionEvent arg0) {
-		dispose();
-	}
-	protected void actionPerformedBtnGrabar(ActionEvent arg0) {
 		
 	}
 }

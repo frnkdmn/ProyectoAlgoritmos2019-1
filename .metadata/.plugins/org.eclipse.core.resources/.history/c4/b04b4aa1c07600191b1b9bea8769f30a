@@ -109,7 +109,6 @@ public class DialogoModificar extends JDialog implements ItemListener, ActionLis
 		contentPanel.add(btnCerrar);
 		
 		btnGrabar = new JButton("Grabar");
-		btnGrabar.addActionListener(this);
 		btnGrabar.setBounds(335, 49, 89, 23);
 		contentPanel.add(btnGrabar);
 		
@@ -160,17 +159,11 @@ public class DialogoModificar extends JDialog implements ItemListener, ActionLis
 		}
 	}
 	public void actionPerformed(ActionEvent arg0) {
-		if (arg0.getSource() == btnGrabar) {
-			actionPerformedBtnGrabar(arg0);
-		}
 		if (arg0.getSource() == btnCerrar) {
 			actionPerformedBtnCerrar(arg0);
 		}
 	}
 	protected void actionPerformedBtnCerrar(ActionEvent arg0) {
 		dispose();
-	}
-	protected void actionPerformedBtnGrabar(ActionEvent arg0) {
-		
 	}
 }
