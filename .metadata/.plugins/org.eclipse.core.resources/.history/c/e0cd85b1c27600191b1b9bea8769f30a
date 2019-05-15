@@ -1,6 +1,8 @@
 package semana06;
 
 import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
@@ -26,7 +28,7 @@ public class DialogoConsultar extends JDialog implements ActionListener, ItemLis
 	private JTextField txtGarantia;
 	private JTextField txtTamaño;
 	private JTextField txtMaterial;
-	private JComboBox<String> cboMarca;
+	private JComboBox cboMarca;
 	private JButton btnCerrar;
 
 	/**
@@ -75,39 +77,39 @@ public class DialogoConsultar extends JDialog implements ActionListener, ItemLis
 		contentPanel.add(lblMaterial);
 		
 		txtPrecio = new JTextField();
-		txtPrecio.setBounds(112, 52, 155, 20);
 		txtPrecio.setEditable(false);
+		txtPrecio.setBounds(112, 52, 155, 20);
 		contentPanel.add(txtPrecio);
 		txtPrecio.setColumns(10);
 		
 		txtGarantia = new JTextField();
-		txtGarantia.setBounds(112, 77, 155, 20);
 		txtGarantia.setEditable(false);
+		txtGarantia.setBounds(112, 77, 155, 20);
 		contentPanel.add(txtGarantia);
 		txtGarantia.setColumns(10);
 		
 		txtTamaño = new JTextField();
-		txtTamaño.setBounds(112, 102, 155, 20);
 		txtTamaño.setEditable(false);
+		txtTamaño.setBounds(112, 102, 155, 20);
 		contentPanel.add(txtTamaño);
 		txtTamaño.setColumns(10);
 		
 		txtMaterial = new JTextField();
-		txtMaterial.setBounds(112, 127, 155, 20);
 		txtMaterial.setEditable(false);
+		txtMaterial.setBounds(112, 127, 155, 20);
 		contentPanel.add(txtMaterial);
 		txtMaterial.setColumns(10);
 		
-		cboMarca = new JComboBox<String>();
-		cboMarca.setBounds(112, 27, 155, 20);
+		cboMarca = new JComboBox();
 		cboMarca.addItemListener(this);
 		cboMarca.addActionListener(this);
-		cboMarca.setModel(new DefaultComboBoxModel<String>(new String[] {"Suavestar", "Springwall", "Paraiso", "Drimer", "Cisne"}));
+		cboMarca.setModel(new DefaultComboBoxModel(new String[] {"Suavestar", "Springwall", "Paraiso", "Drimer", "Cisne"}));
+		cboMarca.setBounds(112, 27, 155, 20);
 		contentPanel.add(cboMarca);
 		
 		btnCerrar = new JButton("Cerrar");
-		btnCerrar.setBounds(335, 26, 89, 23);
 		btnCerrar.addActionListener(this);
+		btnCerrar.setBounds(335, 26, 89, 23);
 		contentPanel.add(btnCerrar);
 		// fijar Suavizar como predeterminado
 		txtPrecio.setText(""+ JFrameTienda.precio0);

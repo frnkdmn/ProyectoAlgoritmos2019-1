@@ -1,8 +1,6 @@
 package semana06;
 
 import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
@@ -24,7 +22,7 @@ public class DialogoModificar extends JDialog implements ItemListener, ActionLis
 	private JLabel lblNewLabel_2;
 	private JLabel lblNewLabel_3;
 	private JLabel lblNewLabel_4;
-	private JComboBox cboMarca;
+	private JComboBox<String> cboMarca;
 	private JTextField txtPrecio;
 	private JTextField txtGarantia;
 	private JTextField txtTamaño;
@@ -77,9 +75,9 @@ public class DialogoModificar extends JDialog implements ItemListener, ActionLis
 		lblNewLabel_4.setBounds(10, 124, 46, 14);
 		contentPanel.add(lblNewLabel_4);
 		
-		cboMarca = new JComboBox();
+		cboMarca = new JComboBox<String>();
 		cboMarca.addItemListener(this);
-		cboMarca.setModel(new DefaultComboBoxModel(new String[] {"Suavestar", "Springwall", "Paraiso", "Drimer", "Cisne"}));
+		cboMarca.setModel(new DefaultComboBoxModel<String>(new String[] {"Suavestar", "Springwall", "Paraiso", "Drimer", "Cisne"}));
 		cboMarca.setBounds(124, 21, 149, 20);
 		contentPanel.add(cboMarca);
 		
