@@ -13,10 +13,8 @@ import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.awt.event.ItemListener;
-import java.awt.event.ItemEvent;
 
-public class DialogoConsultar extends JDialog implements ActionListener, ItemListener {
+public class DialogoConsultar extends JDialog implements ActionListener {
 
 	private final JPanel contentPanel = new JPanel();
 	private JLabel lblMarca;
@@ -101,7 +99,6 @@ public class DialogoConsultar extends JDialog implements ActionListener, ItemLis
 		txtMaterial.setColumns(10);
 		
 		cboMarca = new JComboBox();
-		cboMarca.addItemListener(this);
 		cboMarca.addActionListener(this);
 		cboMarca.setModel(new DefaultComboBoxModel(new String[] {"Suavestar", "Springwall", "Paraiso", "Drimer", "Cisne"}));
 		cboMarca.setBounds(112, 27, 155, 20);
@@ -118,6 +115,9 @@ public class DialogoConsultar extends JDialog implements ActionListener, ItemLis
 		txtMaterial.setText("" + JFrameTienda.material0);
 	}
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == cboMarca) {
+			actionPerformedCboMarca(e);
+		}
 		if (e.getSource() == btnCerrar) {
 			actionPerformedBtnCerrar(e);
 		}
@@ -126,43 +126,7 @@ public class DialogoConsultar extends JDialog implements ActionListener, ItemLis
 		dispose();
 	}
 	
-	public void itemStateChanged(ItemEvent arg0) {
-		if (arg0.getSource() == cboMarca) {
-			itemStateChangedCboMarca(arg0);
-		}
-	}
-	protected void itemStateChangedCboMarca(ItemEvent arg0) {
-		int item = cboMarca.getSelectedIndex();
-		switch(item) {
-			case 0:
-				txtPrecio.setText(""+ JFrameTienda.precio0);
-				txtGarantia.setText("" + JFrameTienda.garantia0);
-				txtTamaño.setText("" + JFrameTienda.tamaño0);
-				txtMaterial.setText("" + JFrameTienda.material0);
-				break;
-			case 1:
-				txtPrecio.setText("" + JFrameTienda.precio1);
-				txtGarantia.setText("" + JFrameTienda.garantia1);
-				txtTamaño.setText("" + JFrameTienda.tamaño1);
-				txtMaterial.setText("" + JFrameTienda.material1);
-				break;
-			case 2:
-				txtPrecio.setText("" + JFrameTienda.precio2);
-				txtGarantia.setText("" + JFrameTienda.garantia2);
-				txtTamaño.setText("" + JFrameTienda.tamaño2);
-				txtMaterial.setText("" + JFrameTienda.material2);
-				break;
-			case 3:
-				txtPrecio.setText("" + JFrameTienda.precio3);
-				txtGarantia.setText("" + JFrameTienda.garantia3);
-				txtTamaño.setText("" + JFrameTienda.tamaño3);
-				txtMaterial.setText("" + JFrameTienda.material3);
-				break;
-			default:
-				txtPrecio.setText("" + JFrameTienda.precio4);
-				txtGarantia.setText("" + JFrameTienda.garantia4);
-				txtTamaño.setText("" + JFrameTienda.tamaño4);
-				txtMaterial.setText("" + JFrameTienda.material4);		
-		}
+	protected void actionPerformedCboMarca(ActionEvent e) {
+		
 	}
 }
