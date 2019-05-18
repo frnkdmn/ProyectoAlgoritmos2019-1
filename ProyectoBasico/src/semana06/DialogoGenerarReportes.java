@@ -12,8 +12,10 @@ import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.DefaultComboBoxModel;
+import java.awt.event.ItemListener;
+import java.awt.event.ItemEvent;
 
-public class DialogoGenerarReportes extends JDialog implements ActionListener {
+public class DialogoGenerarReportes extends JDialog implements ActionListener, ItemListener {
 
 	private final JPanel contentPanel = new JPanel();
 	private JLabel lblNewLabel;
@@ -41,7 +43,7 @@ public class DialogoGenerarReportes extends JDialog implements ActionListener {
 	 */
 	public DialogoGenerarReportes() {
 		setTitle("Generar Reportes");
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 540, 400);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
@@ -52,21 +54,36 @@ public class DialogoGenerarReportes extends JDialog implements ActionListener {
 		contentPanel.add(lblNewLabel);
 		
 		cboTipoReporte = new JComboBox<String>();
+		cboTipoReporte.addItemListener(this);
 		cboTipoReporte.setModel(new DefaultComboBoxModel<String>(new String[] {"Ventas por marca", "Marcas con venta \u00F3ptima", "Precios en relaci\u00F3n al promedio", "Precio promedio, mayor y menor"}));
-		cboTipoReporte.setBounds(101, 8, 202, 20);
+		cboTipoReporte.setBounds(101, 8, 300, 20);
 		contentPanel.add(cboTipoReporte);
 		
 		btnCerrar = new JButton("Cerrar");
 		btnCerrar.addActionListener(this);
-		btnCerrar.setBounds(335, 7, 89, 23);
+		btnCerrar.setBounds(425, 7, 89, 23);
 		contentPanel.add(btnCerrar);
 		
 		scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 36, 414, 214);
+		scrollPane.setBounds(10, 36, 504, 314);
 		contentPanel.add(scrollPane);
 		
 		txtS = new JTextArea();
 		scrollPane.setViewportView(txtS);
+		txtS.setText("Ventas por colchón" + "\n\n");
+		txtS.append ("Marcas			: Suavestar" + "\n");
+		txtS.append ("Cantidad de ventas		: 5" + "\n");
+		txtS.append ("Cantidad total de unidades vendidas 	: 12" + "\n");
+		txtS.append ("Importente total acumulado		: S/. 5998.0"+ "\n\n");
+		txtS.append ("Marca			: Springwall" + "\n");
+		txtS.append ("Cantidad de ventas		: 6" + "\n");
+		txtS.append ("Cantidad total de unidades vendidas	: 20" + "\n");
+		txtS.append ("Importe total acumulado		: S/. 13580.0" + "\n");
+		txtS.append ("." + "\n");
+		txtS.append ("." + "\n");
+		txtS.append ("." + "\n");
+		txtS.append ("Importe total general acumulado	: S/. 66700.0" + "\n");
+		txtS.append ("Cantidad total general de ventas	: 25 " + "\n");
 	}
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == btnCerrar) {
@@ -74,5 +91,61 @@ public class DialogoGenerarReportes extends JDialog implements ActionListener {
 		}
 	}
 	protected void actionPerformedBtnNewButton(ActionEvent e) {
+	}
+	public void itemStateChanged(ItemEvent arg0) {
+		if (arg0.getSource() == cboTipoReporte) {
+			itemStateChangedCboTipoReporte(arg0);
+		}
+	}
+	protected void itemStateChangedCboTipoReporte(ItemEvent arg0) {
+		int item = cboTipoReporte.getSelectedIndex();
+		switch (item) {
+			case 0:
+				txtS.setText("Ventas por colchón" + "\n\n");
+				txtS.append ("Marcas			: Suavestar" + "\n");
+				txtS.append ("Cantidad de ventas		: 5" + "\n");
+				txtS.append ("Cantidad total de unidades vendidas 	: 12" + "\n");
+				txtS.append ("Importente total acumulado		: S/. 5998.0"+ "\n\n");
+				txtS.append ("Marca			: Springwall" + "\n");
+				txtS.append ("Cantidad de ventas		: 6" + "\n");
+				txtS.append ("Cantidad total de unidades vendidas	: 20" + "\n");
+				txtS.append ("Importe total acumulado		: S/. 13580.0" + "\n");
+				txtS.append ("." + "\n");
+				txtS.append ("." + "\n");
+				txtS.append ("." + "\n");
+				txtS.append ("Importe total general acumulado	: S/. 66700.0" + "\n");
+				txtS.append ("Cantidad total general de ventas	: 25 " + "\n");
+				break;
+			case 1:
+				txtS.setText("Colchones con venta óptima" + "\n\n");
+				txtS.append ("Marca			: Springwall" + "\n");
+				txtS.append ("Cantidad total de unidades vendidas	: 15 (5 más que la cantidad óptima)" + "\n\n");
+				txtS.append ("Marca			: Cisne" + "\n");
+				txtS.append ("Cantidad total de unidades vendidas	: 25 (15 más que la cantidad óptima)" + "\n");
+				txtS.append ("." + "\n");
+				txtS.append ("." + "\n");
+				txtS.append (".");
+				break;
+			case 2:
+				txtS.setText("Precios en relación al promedio" + "\n\n");
+				txtS.append ("Nombre	: Suavestar" + "\n");
+				txtS.append ("Precio	: 499.0 (menor al promedio)" + "\n\n");
+				txtS.append ("Nombre	: Springwall" + "\n");
+				txtS.append ("Precio	: 679.0 (mayor al promedio)" + "\n\n");
+				txtS.append ("Nombre	: Paraiso" + "\n");
+				txtS.append ("Precio	: 479.0 (menor al promedio)" + "\n\n");
+				txtS.append ("Nombre	: Drimer" + "\n");
+				txtS.append ("Precio	: 749.0 (mayor al promedio)" + "\n\n");
+				txtS.append ("Nombre	: Cisne" + "\n");
+				txtS.append ("Precio	: 389.0 (mayor al promedio)" + "\n\n");
+				txtS.append ("Precio promedio : S/ 559.0");
+				break;
+			default:
+				txtS.setText("Precio promedio, menor y mayor" + "\n\n");
+				txtS.append ("Precio promedio : S/ 559.0" + "\n");
+				txtS.append ("Precio menor	  : S/ 389.0" + "\n");
+				txtS.append ("Precio mayor	  : S/ 749.0" + "\n");
+				
+		}
 	}
 }

@@ -148,12 +148,13 @@ public class DialogoVender extends JDialog implements ItemListener, ActionListen
 		ip = ic - id;
 		if(cantidad>=Tienda.cantidadMinimaObsequiable) obsequio = Tienda.obsequio;
 		else obsequio = "No hay obsequio";
-		txtS.setText("Marca                : " + marca + "\n");
-		txtS.append ("Precio               : " + precio + "\n");
-		txtS.append ("Cantidad             : " + cantidad + "\n");
-		txtS.append ("Importe compra       : " + ic + "\n");
-		txtS.append ("Importe de descuento : " + id + "\n");
-		txtS.append ("Importe a pagar      : " + ip + "\n");
-		txtS.append ("Obsequio             : " + obsequio + "\n");
+		txtS.setText("Marca		: " + marca + "\n");
+		txtS.append ("Precio		: " + precio + "\n");
+		txtS.append ("Cantidad		: " + cantidad + "\n");
+		txtS.append ("Importe compra		: " + ic + "\n");
+		txtS.append ("Importe de descuento	: " + id + "\n");
+		txtS.append ("Importe a pagar		: " + ip + "\n");
+		txtS.append ("Obsequio		: " + obsequio + "\n");
+		txtS.append ("Premio sorpresa	: ");
 	}
 }

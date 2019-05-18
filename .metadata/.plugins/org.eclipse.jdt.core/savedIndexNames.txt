@@ -6,9 +6,9 @@ INDEX VERSION 1.127+C:\Users\FrNk_\OneDrive\Documentos\GitHub\ProyectoCibertec\.
 2828169528.index
 2624726496.index
 177638979.index
-2605561000.index
-1927433397.index
 3032694404.index
+1927433397.index
+2605561000.index
 1303184529.index
 1713172528.index
 715107097.index

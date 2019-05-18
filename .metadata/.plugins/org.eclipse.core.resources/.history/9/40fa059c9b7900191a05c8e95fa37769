@@ -15,8 +15,10 @@ import javax.swing.JTextArea;
 import javax.swing.DefaultComboBoxModel;
 import java.awt.event.ItemListener;
 import java.awt.event.ItemEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
-public class DialogoVender extends JDialog implements ItemListener {
+public class DialogoVender extends JDialog implements ItemListener, ActionListener {
 
 	private final JPanel contentPanel = new JPanel();
 	private JTextField txtPrecio;
@@ -85,6 +87,7 @@ public class DialogoVender extends JDialog implements ItemListener {
 		contentPanel.add(cboMarca);
 		
 		btnVender = new JButton("Vender");
+		btnVender.addActionListener(this);
 		btnVender.setBounds(335, 7, 89, 23);
 		contentPanel.add(btnVender);
 		
@@ -98,7 +101,7 @@ public class DialogoVender extends JDialog implements ItemListener {
 		
 		txtS = new JTextArea();
 		scrollPane.setViewportView(txtS);
-		txtPrecio.setText("" + JFrameTienda.precio0);
+		txtPrecio.setText("" + Tienda.precio0);
 	}
 	public void itemStateChanged(ItemEvent arg0) {
 		if (arg0.getSource() == cboMarca) {
@@ -109,19 +112,49 @@ public class DialogoVender extends JDialog implements ItemListener {
 		int item = cboMarca.getSelectedIndex();
 		switch (item) {
 			case 0:
-				txtPrecio.setText(""+ JFrameTienda.precio0);
+				txtPrecio.setText(""+ Tienda.precio0);
 				break;
 			case 1:
-				txtPrecio.setText("" + JFrameTienda.precio1);
+				txtPrecio.setText("" + Tienda.precio1);
 				break;
 			case 2:
-				txtPrecio.setText("" + JFrameTienda.precio2);
+				txtPrecio.setText("" + Tienda.precio2);
 				break;
 			case 3:
-				txtPrecio.setText("" + JFrameTienda.precio3);
+				txtPrecio.setText("" + Tienda.precio3);
 				break;
 			default:
-				txtPrecio.setText("" + JFrameTienda.precio4);
+				txtPrecio.setText("" + Tienda.precio4);
 		}
+	}
+	public void actionPerformed(ActionEvent arg0) {
+		if (arg0.getSource() == btnVender) {
+			actionPerformedBtnVender(arg0);
+		}
+	}
+	protected void actionPerformedBtnVender(ActionEvent arg0) {
+		double ic, ip, id, precio; 
+		int cantidad; 
+		String marca, obsequio;
+		
+		marca = String.valueOf(cboMarca.getSelectedItem());
+		precio = Double.parseDouble(txtPrecio.getText());
+		cantidad = Integer.parseInt(txtCantidad.getText());
+		ic = precio * cantidad;
+		if(cantidad<=5) id = Tienda.porcentaje1/100 * ic;
+		else if (cantidad<=10) id = Tienda.porcentaje2/100 * ic;
+		else if (cantidad<=15) id = Tienda.porcentaje3/100 * ic;
+		else id = Tienda.porcentaje4/100 * ic;
+		ip = ic - id;
+		if(cantidad>=Tienda.cantidadMinimaObsequiable) obsequio = Tienda.obsequio;
+		else obsequio = "No hay obsequio";
+		txtS.setText("Marca                : " + marca + "\n");
+		txtS.append ("Precio               : " + precio + "\n");
+		txtS.append ("Cantidad             : " + cantidad + "\n");
+		txtS.append ("Importe compra       : " + ic + "\n");
+		txtS.append ("Importe de descuento : " + id + "\n");
+		txtS.append ("Importe a pagar      : " + ip + "\n");
+		txtS.append ("Obsequio             : " + obsequio + "\n");
+		txtS.append ("Premio sorpresa      : ");
 	}
 }

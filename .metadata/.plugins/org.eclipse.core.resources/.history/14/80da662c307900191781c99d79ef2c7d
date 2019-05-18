@@ -1,0 +1,57 @@
+package semana06;
+
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+
+public class fadsfa extends JDialog {
+
+	private final JPanel contentPanel = new JPanel();
+	private JScrollPane scrollPane;
+	private JTextArea txtS;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		try {
+			fadsfa dialog = new fadsfa();
+			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+			dialog.setVisible(true);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * Create the dialog.
+	 */
+	public fadsfa() {
+		setBounds(100, 100, 450, 300);
+		getContentPane().setLayout(new BorderLayout());
+		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		getContentPane().add(contentPanel, BorderLayout.CENTER);
+		contentPanel.setLayout(null);
+		
+		scrollPane = new JScrollPane();
+		scrollPane.setBounds(10, 11, 414, 239);
+		contentPanel.add(scrollPane);
+		
+		txtS = new JTextArea();
+		scrollPane.setViewportView(txtS);
+		txtS.setText("Marca                : " + "\n");
+		txtS.append ("Precio               : " + "\n");
+		txtS.append ("Cantidad             : " +"\n");
+		txtS.append ("Importe compra       : " +"\n");
+		txtS.append ("Importe de descuento : " +  "\n");
+		txtS.append ("Importe a pagar      : " + "\n");
+		txtS.append ("Obsequio             : " + "\n");
+	}
+}
