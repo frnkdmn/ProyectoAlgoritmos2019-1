@@ -91,7 +91,6 @@ public class DialogoGenerarReportes extends JDialog implements ActionListener, I
 		}
 	}
 	protected void actionPerformedBtnNewButton(ActionEvent e) {
-		dispose();
 	}
 	public void itemStateChanged(ItemEvent arg0) {
 		if (arg0.getSource() == cboTipoReporte) {
