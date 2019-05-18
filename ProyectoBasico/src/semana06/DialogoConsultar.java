@@ -48,7 +48,7 @@ public class DialogoConsultar extends JDialog implements ActionListener, ItemLis
 	 */
 	public DialogoConsultar() {
 		setTitle("Consultar colch\u00F3n");
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 450, 210);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
@@ -110,10 +110,10 @@ public class DialogoConsultar extends JDialog implements ActionListener, ItemLis
 		btnCerrar.addActionListener(this);
 		contentPanel.add(btnCerrar);
 		// fijar Suavizar como predeterminado
-		txtPrecio.setText(""+ JFrameTienda.precio0);
-		txtGarantia.setText("" + JFrameTienda.garantia0);
-		txtTamaño.setText("" + JFrameTienda.tamaño0);
-		txtMaterial.setText("" + JFrameTienda.material0);
+		txtPrecio.setText(""+ Tienda.precio0);
+		txtGarantia.setText("" + Tienda.garantia0);
+		txtTamaño.setText("" + Tienda.tamaño0);
+		txtMaterial.setText("" + Tienda.material0);
 	}
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == btnCerrar) {
@@ -133,34 +133,34 @@ public class DialogoConsultar extends JDialog implements ActionListener, ItemLis
 		int item = cboMarca.getSelectedIndex();
 		switch(item) {
 			case 0:
-				txtPrecio.setText(""+ JFrameTienda.precio0);
-				txtGarantia.setText("" + JFrameTienda.garantia0);
-				txtTamaño.setText("" + JFrameTienda.tamaño0);
-				txtMaterial.setText("" + JFrameTienda.material0);
+				txtPrecio.setText(""+ Tienda.precio0);
+				txtGarantia.setText("" + Tienda.garantia0);
+				txtTamaño.setText("" + Tienda.tamaño0);
+				txtMaterial.setText("" + Tienda.material0);
 				break;
 			case 1:
-				txtPrecio.setText("" + JFrameTienda.precio1);
-				txtGarantia.setText("" + JFrameTienda.garantia1);
-				txtTamaño.setText("" + JFrameTienda.tamaño1);
-				txtMaterial.setText("" + JFrameTienda.material1);
+				txtPrecio.setText("" + Tienda.precio1);
+				txtGarantia.setText("" + Tienda.garantia1);
+				txtTamaño.setText("" + Tienda.tamaño1);
+				txtMaterial.setText("" + Tienda.material1);
 				break;
 			case 2:
-				txtPrecio.setText("" + JFrameTienda.precio2);
-				txtGarantia.setText("" + JFrameTienda.garantia2);
-				txtTamaño.setText("" + JFrameTienda.tamaño2);
-				txtMaterial.setText("" + JFrameTienda.material2);
+				txtPrecio.setText("" + Tienda.precio2);
+				txtGarantia.setText("" + Tienda.garantia2);
+				txtTamaño.setText("" + Tienda.tamaño2);
+				txtMaterial.setText("" + Tienda.material2);
 				break;
 			case 3:
-				txtPrecio.setText("" + JFrameTienda.precio3);
-				txtGarantia.setText("" + JFrameTienda.garantia3);
-				txtTamaño.setText("" + JFrameTienda.tamaño3);
-				txtMaterial.setText("" + JFrameTienda.material3);
+				txtPrecio.setText("" + Tienda.precio3);
+				txtGarantia.setText("" + Tienda.garantia3);
+				txtTamaño.setText("" + Tienda.tamaño3);
+				txtMaterial.setText("" + Tienda.material3);
 				break;
 			default:
-				txtPrecio.setText("" + JFrameTienda.precio4);
-				txtGarantia.setText("" + JFrameTienda.garantia4);
-				txtTamaño.setText("" + JFrameTienda.tamaño4);
-				txtMaterial.setText("" + JFrameTienda.material4);		
+				txtPrecio.setText("" + Tienda.precio4);
+				txtGarantia.setText("" + Tienda.garantia4);
+				txtTamaño.setText("" + Tienda.tamaño4);
+				txtMaterial.setText("" + Tienda.material4);		
 		}
 	}
 }

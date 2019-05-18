@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="semana06.JFrameTienda"/>
 <fullyQualifiedTypeName name="semana06.DialogoConsultar"/>
 <fullyQualifiedTypeName name="semana06.DialogoModificar"/>
 <fullyQualifiedTypeName name="semana06.DialogoListar"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="semana06.DialogoGenerarReportes"/>
+<fullyQualifiedTypeName name="semana06.DialogoVender"/>
+<fullyQualifiedTypeName name="semana06.JFrameTienda"/>
+<fullyQualifiedTypeName name="java.awt.peer.TextAreaPeer"/>
+<fullyQualifiedTypeName name="semana06.DialogoAcercaDeTienda"/>
 </qualifiedTypeNameHistroy>
