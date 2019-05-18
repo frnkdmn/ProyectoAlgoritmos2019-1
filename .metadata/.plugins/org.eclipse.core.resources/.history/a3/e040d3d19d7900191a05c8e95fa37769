@@ -92,7 +92,6 @@ public class DialogoVender extends JDialog implements ItemListener, ActionListen
 		contentPanel.add(btnVender);
 		
 		btnCerrar = new JButton("Cerrar");
-		btnCerrar.addActionListener(this);
 		btnCerrar.setBounds(335, 32, 89, 23);
 		contentPanel.add(btnCerrar);
 		
@@ -129,9 +128,6 @@ public class DialogoVender extends JDialog implements ItemListener, ActionListen
 		}
 	}
 	public void actionPerformed(ActionEvent arg0) {
-		if (arg0.getSource() == btnCerrar) {
-			actionPerformedBtnCerrar(arg0);
-		}
 		if (arg0.getSource() == btnVender) {
 			actionPerformedBtnVender(arg0);
 		}
@@ -160,8 +156,5 @@ public class DialogoVender extends JDialog implements ItemListener, ActionListen
 		txtS.append ("Importe a pagar		: " + ip + "\n");
 		txtS.append ("Obsequio		: " + obsequio + "\n");
 		txtS.append ("Premio sorpresa	: ");
-	}
-	protected void actionPerformedBtnCerrar(ActionEvent arg0) {
-		dispose();
 	}
 }
