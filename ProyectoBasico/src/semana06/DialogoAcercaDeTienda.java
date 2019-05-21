@@ -11,6 +11,7 @@ import javax.swing.UIManager;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
+import javax.swing.JSeparator;
 
 public class DialogoAcercaDeTienda extends JDialog implements ActionListener {
 
@@ -19,8 +20,11 @@ public class DialogoAcercaDeTienda extends JDialog implements ActionListener {
 	private JLabel lblTienda;
 	private JButton btnCerrar;
 	private JLabel lblAutor;
-	private JLabel lblAño;
-	private JLabel lblLimaPeru;
+	private JSeparator separator;
+	private JLabel lblFrancoRomeroMorales;
+	private JLabel lblNewLabel;
+	private JLabel lblNewLabel_1;
+	private JLabel lblNewLabel_2;
 
 	/**
 	 * Launch the application.
@@ -48,7 +52,7 @@ public class DialogoAcercaDeTienda extends JDialog implements ActionListener {
 	public DialogoAcercaDeTienda() {
 		setResizable(false);
 		setTitle("Acerca de Tienda");
-		setBounds(100, 100, 450, 233);
+		setBounds(100, 100, 450, 260);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
@@ -61,23 +65,33 @@ public class DialogoAcercaDeTienda extends JDialog implements ActionListener {
 
 		btnCerrar = new JButton("Cerrar");
 		btnCerrar.addActionListener(this);
-		btnCerrar.setBounds(177, 171, 89, 23);
+		btnCerrar.setBounds(186, 197, 89, 23);
 		contentPanel.add(btnCerrar);
 
-		lblAutor = new JLabel("Hecho por Abner Malka Abensur");
-		lblAutor.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		lblAutor.setBounds(134, 51, 176, 15);
+		lblAutor = new JLabel("Autores");
+		lblAutor.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblAutor.setBounds(197, 58, 50, 15);
 		contentPanel.add(lblAutor);
-
-		lblAño = new JLabel("2016");
-		lblAño.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		lblAño.setBounds(208, 76, 28, 15);
-		contentPanel.add(lblAño);
-
-		lblLimaPeru = new JLabel("Lima, Per\u00FA");
-		lblLimaPeru.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		lblLimaPeru.setBounds(193, 101, 57, 15);
-		contentPanel.add(lblLimaPeru);
+		
+		separator = new JSeparator();
+		separator.setBounds(10, 39, 424, 3);
+		contentPanel.add(separator);
+		
+		lblFrancoRomeroMorales = new JLabel("Franco Romero Morales");
+		lblFrancoRomeroMorales.setBounds(151, 134, 166, 14);
+		contentPanel.add(lblFrancoRomeroMorales);
+		
+		lblNewLabel = new JLabel("Bruno Alonso De La Cruz Aliaga");
+		lblNewLabel.setBounds(151, 84, 166, 14);
+		contentPanel.add(lblNewLabel);
+		
+		lblNewLabel_1 = new JLabel("Nahun Jos\u00E9 Pecho Marcos");
+		lblNewLabel_1.setBounds(151, 159, 166, 14);
+		contentPanel.add(lblNewLabel_1);
+		
+		lblNewLabel_2 = new JLabel("Clemente romero Sting Joel");
+		lblNewLabel_2.setBounds(151, 109, 166, 14);
+		contentPanel.add(lblNewLabel_2);
 	}
 
 	public void actionPerformed(ActionEvent e) {

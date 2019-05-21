@@ -65,14 +65,14 @@ public class DialogoListar extends JDialog implements ActionListener {
 		getContentPane().add(panel);
 		panel.setLayout(null);
 
-		btnCerrar = new JButton("Cerrar");
-		btnCerrar.setBounds(99, 0, 89, 23);
-		panel.add(btnCerrar);
-
 		btnListar = new JButton("Listar");
 		btnListar.addActionListener(this);
-		btnListar.setBounds(0, 0, 89, 23);
+		btnListar.setBounds(99, 0, 89, 23);
 		panel.add(btnListar);
+		
+				btnCerrar = new JButton("Cerrar");
+				btnCerrar.setBounds(0, 0, 89, 23);
+				panel.add(btnCerrar);
 		btnCerrar.addActionListener(this);
 
 	}
@@ -91,6 +91,31 @@ public class DialogoListar extends JDialog implements ActionListener {
 	}
 
 	protected void actionPerformedBtnListar(ActionEvent e) {
-
+		txtS.setText("Listado de Colchones"+"\n\n");
+		txtS.append("Marca     : Suavestar"+"\n");
+		txtS.append("Precio    : S/ 499.0"+"\n");
+		txtS.append("Garantía  : 7 años"+"\n");
+		txtS.append("Tamaño    : 1 1/2 Plaza"+"\n");
+		txtS.append("Material  : Tela Tricot Acolchada"+"\n\n");
+		txtS.append("Marca     : Springwall"+"\n");
+		txtS.append("Precio    : S/ 679.0"+"\n");
+		txtS.append("Garantía  : 10 años"+"\n");
+		txtS.append("Tamaño    : 2 Plazas"+"\n");
+		txtS.append("Material  : Tejido de Punto de Algodón"+"\n\n");
+		txtS.append("Marca     : Paraiso"+"\n");
+		txtS.append("Precio    : S/ 479.0"+"\n");
+		txtS.append("Garantía  : 5 años"+"\n");
+		txtS.append("Tamaño    : 1 1/2 Plazas"+"\n");
+		txtS.append("Material  : Tejido de Punto"+"\n\n");
+		txtS.append("Marca     : Drimer"+"\n");
+		txtS.append("Precio    : S/ 749.0"+"\n");
+		txtS.append("Garantía  : 4 años"+"\n");
+		txtS.append("Tamaño    : Queen"+"\n");
+		txtS.append("Material  : Jacquard"+"\n\n");
+		txtS.append("Marca     : Cisne"+"\n");
+		txtS.append("Precio    : S/ 389.0"+"\n");
+		txtS.append("Garantía  : 2 años"+"\n");
+		txtS.append("Tamaño    : 1 1/2 Plazas"+"\n");
+		txtS.append("Material  : Tejido de Punto");
 	}
 }

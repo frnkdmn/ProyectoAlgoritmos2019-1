@@ -1,0 +1,62 @@
+package semana06;
+
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+public class DialogoConfigurarCO extends JDialog {
+
+	private final JPanel contentPanel = new JPanel();
+	private JLabel lblNewLabel;
+	private JTextField textField;
+	private JButton btnAceptar;
+	private JButton btnCerrar;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		try {
+			DialogoConfigurarCO dialog = new DialogoConfigurarCO();
+			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+			dialog.setVisible(true);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * Create the dialog.
+	 */
+	public DialogoConfigurarCO() {
+		setBounds(100, 100, 450, 180);
+		getContentPane().setLayout(new BorderLayout());
+		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		getContentPane().add(contentPanel, BorderLayout.CENTER);
+		contentPanel.setLayout(null);
+		
+		lblNewLabel = new JLabel("Cantidad \u00F3ptima de colchones  vendidos");
+		lblNewLabel.setBounds(10, 24, 215, 14);
+		contentPanel.add(lblNewLabel);
+		
+		textField = new JTextField();
+		textField.setBounds(243, 21, 55, 20);
+		contentPanel.add(textField);
+		textField.setColumns(10);
+		
+		btnAceptar = new JButton("Acepar");
+		btnAceptar.setBounds(335, 20, 89, 23);
+		contentPanel.add(btnAceptar);
+		
+		btnCerrar = new JButton("Cerrar");
+		btnCerrar.setBounds(335, 54, 89, 23);
+		contentPanel.add(btnCerrar);
+	}
+}

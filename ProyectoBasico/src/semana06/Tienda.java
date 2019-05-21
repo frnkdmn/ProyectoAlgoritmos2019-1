@@ -149,9 +149,11 @@ public class Tienda extends JFrame implements ActionListener {
 		mnConfiguracin.add(mntmConfigurarObsequio);
 		
 		mntmConfigurarCantidadptima = new JMenuItem("Configurar cantidad \u00F3ptima de colchones vendidos");
+		mntmConfigurarCantidadptima.addActionListener(this);
 		mnConfiguracin.add(mntmConfigurarCantidadptima);
 		
 		mntmConfigurarPremioSorpresa = new JMenuItem("Configurar premio sorpresa");
+		mntmConfigurarPremioSorpresa.addActionListener(this);
 		mnConfiguracin.add(mntmConfigurarPremioSorpresa);
 		
 		mnAyuda = new JMenu("Ayuda");
@@ -168,6 +170,12 @@ public class Tienda extends JFrame implements ActionListener {
 	
 
 	public void actionPerformed(ActionEvent arg0) {
+		if (arg0.getSource() == mntmConfigurarPremioSorpresa) {
+			actionPerformedMntmConfigurarPremioSorpresa(arg0);
+		}
+		if (arg0.getSource() == mntmConfigurarCantidadptima) {
+			actionPerformedMntmConfigurarCantidadptima(arg0);
+		}
 		if (arg0.getSource() == mntmAcercaDeTienda) {
 			actionPerformedMntmAcercaDeTienda(arg0);
 		}
@@ -223,5 +231,15 @@ public class Tienda extends JFrame implements ActionListener {
 		DialogoAcercaDeTienda dat = new DialogoAcercaDeTienda();
 		dat.setVisible(true);
 		dat.setLocationRelativeTo(this);
+	}
+	protected void actionPerformedMntmConfigurarCantidadptima(ActionEvent arg0) {
+		DialogoConfigurarCO dcco = new DialogoConfigurarCO();
+		dcco.setVisible(true);
+		dcco.setLocationRelativeTo(this);
+	}
+	protected void actionPerformedMntmConfigurarPremioSorpresa(ActionEvent arg0) {
+		DialogoConfigurarPS dcps = new DialogoConfigurarPS();
+		dcps.setVisible(true);
+		dcps.setLocationRelativeTo(this);
 	}
 }
