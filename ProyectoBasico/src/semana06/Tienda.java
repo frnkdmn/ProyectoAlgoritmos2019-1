@@ -77,7 +77,24 @@ public class Tienda extends JFrame implements ActionListener {
 	public static int numeroClienteSorpresa = 5;
 	// Premio sorpresa
 	public static String premioSorpresa = "Un polo";
-	
+	// Contadores y Acumuladores
+	public static int Ventas0;
+	public static int Ventas1;
+	public static int Ventas2;
+	public static int Ventas3;
+	public static int Ventas4;
+	public static int TotalUnidadesVendidas0;
+	public static int TotalUnidadesVendidas1;
+	public static int TotalUnidadesVendidas2;
+	public static int TotalUnidadesVendidas3;
+	public static int TotalUnidadesVendidas4;
+	public static double ImporteTotal0;
+	public static double ImporteTotal1;
+	public static double ImporteTotal2;
+	public static double ImporteTotal3;
+	public static double ImporteTotal4;
+	public static double ImporteTotalGeneral;
+	public static int CantidadTotalGeneral;
 	/**
 	 * Launch the application.
 	 */

@@ -136,12 +136,47 @@ public class DialogoVender extends JDialog implements ItemListener, ActionListen
 			actionPerformedBtnVender(arg0);
 		}
 	}
+	void contarCantidadVentas(int marca){
+		switch(marca){
+			case 0: Tienda.Ventas0++; break;
+			case 1: Tienda.Ventas1++; break;
+			case 2: Tienda.Ventas2++; break;
+			case 3: Tienda.Ventas3++; break;
+			default: Tienda.Ventas4++;
+		}
+	}
+	void acumularTotalUnidadesVendidas(int marca,int unidades){
+		switch(marca){
+			case 0: Tienda.TotalUnidadesVendidas0+=unidades; break;
+			case 1: Tienda.TotalUnidadesVendidas1+=unidades; break;
+			case 2: Tienda.TotalUnidadesVendidas2+=unidades; break;
+			case 3: Tienda.TotalUnidadesVendidas3+=unidades; break;
+			default: Tienda.TotalUnidadesVendidas4+=unidades;
+		}
+	}
+	void acumularImporteTotal(int marca,double ip){
+		switch(marca){
+			case 0: Tienda.ImporteTotal0+=ip; break;
+			case 1: Tienda.ImporteTotal1+=ip; break;
+			case 2: Tienda.ImporteTotal2+=ip; break;
+			case 3: Tienda.ImporteTotal3+=ip; break;
+			default: Tienda.ImporteTotal4+=ip;
+		}
+	}
+	void sumarCantidadTotalGeneral(){
+		Tienda.CantidadTotalGeneral=Tienda.TotalUnidadesVendidas0+Tienda.TotalUnidadesVendidas1+Tienda.TotalUnidadesVendidas2
+				+Tienda.TotalUnidadesVendidas3+Tienda.TotalUnidadesVendidas4;
+	}
+	void sumarImporteTotalGeneral(){
+		Tienda.ImporteTotalGeneral=Tienda.ImporteTotal0+Tienda.ImporteTotal1+Tienda.ImporteTotal2+Tienda.ImporteTotal3
+				+Tienda.ImporteTotal4;
+	}
 	protected void actionPerformedBtnVender(ActionEvent arg0) {
 		double ic, ip, id, precio; 
-		int cantidad; 
-		String marca, obsequio;
-		
-		marca = String.valueOf(cboMarca.getSelectedItem());
+		int cantidad,marca; 
+		String nombre, obsequio;
+		marca= cboMarca.getSelectedIndex();
+		nombre = String.valueOf(cboMarca.getSelectedItem());
 		precio = Double.parseDouble(txtPrecio.getText());
 		cantidad = Integer.parseInt(txtCantidad.getText());
 		ic = precio * cantidad;
@@ -151,8 +186,13 @@ public class DialogoVender extends JDialog implements ItemListener, ActionListen
 		else id = Tienda.porcentaje4/100 * ic;
 		ip = ic - id;
 		if(cantidad>=Tienda.cantidadMinimaObsequiable) obsequio = Tienda.obsequio;
-		else obsequio = "No hay obsequio";
-		txtS.setText("Marca		: " + marca + "\n");
+		else obsequio = "No hay obsequio";	
+		contarCantidadVentas(marca);
+		acumularTotalUnidadesVendidas(marca,cantidad);
+		acumularImporteTotal(marca, ip);
+		sumarCantidadTotalGeneral();
+		sumarImporteTotalGeneral();
+		txtS.setText("Marca		: " + nombre + "\n");
 		txtS.append ("Precio		: " + precio + "\n");
 		txtS.append ("Cantidad		: " + cantidad + "\n");
 		txtS.append ("Importe compra		: " + ic + "\n");
