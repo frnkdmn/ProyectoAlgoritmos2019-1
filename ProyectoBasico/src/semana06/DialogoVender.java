@@ -8,6 +8,7 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.JScrollPane;
@@ -136,31 +137,19 @@ public class DialogoVender extends JDialog implements ItemListener, ActionListen
 			actionPerformedBtnVender(arg0);
 		}
 	}
-	void contarCantidadVentas(int marca){
-		switch(marca){
-			case 0: Tienda.Ventas0++; break;
-			case 1: Tienda.Ventas1++; break;
-			case 2: Tienda.Ventas2++; break;
-			case 3: Tienda.Ventas3++; break;
-			default: Tienda.Ventas4++;
-		}
+	void imprimir(String texto){
+		txtS.append(""+texto+"\n");
 	}
-	void acumularTotalUnidadesVendidas(int marca,int unidades){
-		switch(marca){
-			case 0: Tienda.TotalUnidadesVendidas0+=unidades; break;
-			case 1: Tienda.TotalUnidadesVendidas1+=unidades; break;
-			case 2: Tienda.TotalUnidadesVendidas2+=unidades; break;
-			case 3: Tienda.TotalUnidadesVendidas3+=unidades; break;
-			default: Tienda.TotalUnidadesVendidas4+=unidades;
-		}
+	void mensaje(String msj){
+		JOptionPane.showMessageDialog(this, msj);
 	}
-	void acumularImporteTotal(int marca,double ip){
+	void efectuarIncrementos(int marca,int unidades,double ip){
 		switch(marca){
-			case 0: Tienda.ImporteTotal0+=ip; break;
-			case 1: Tienda.ImporteTotal1+=ip; break;
-			case 2: Tienda.ImporteTotal2+=ip; break;
-			case 3: Tienda.ImporteTotal3+=ip; break;
-			default: Tienda.ImporteTotal4+=ip;
+			case 0: Tienda.ImporteTotal0+=ip;Tienda.TotalUnidadesVendidas0+=unidades;Tienda.Ventas0++; Tienda.numeroCliente++;break;
+			case 1: Tienda.ImporteTotal1+=ip;Tienda.TotalUnidadesVendidas1+=unidades;Tienda.Ventas1++; Tienda.numeroCliente++;break;
+			case 2: Tienda.ImporteTotal2+=ip;Tienda.TotalUnidadesVendidas2+=unidades;Tienda.Ventas2++; Tienda.numeroCliente++;break;
+			case 3: Tienda.ImporteTotal3+=ip;Tienda.TotalUnidadesVendidas3+=unidades;Tienda.Ventas3++; Tienda.numeroCliente++;break;
+			default: Tienda.ImporteTotal4+=ip;Tienda.TotalUnidadesVendidas4+=unidades;Tienda.Ventas4++;Tienda.numeroCliente++;
 		}
 	}
 	void sumarCantidadTotalGeneral(){
@@ -171,35 +160,67 @@ public class DialogoVender extends JDialog implements ItemListener, ActionListen
 		Tienda.ImporteTotalGeneral=Tienda.ImporteTotal0+Tienda.ImporteTotal1+Tienda.ImporteTotal2+Tienda.ImporteTotal3
 				+Tienda.ImporteTotal4;
 	}
+	double calcularIC(double precio,int cantidad){
+		return precio*cantidad;
+	}
+	double calcularID(int cantidad, double ic){
+		if(cantidad<=5) return Tienda.porcentaje1/100 * ic;
+		else if (cantidad<=10) return Tienda.porcentaje2/100 * ic;
+		else if (cantidad<=15) return Tienda.porcentaje3/100 * ic;
+		else return Tienda.porcentaje4/100 * ic;
+	}
+	double calcularIP(double ic, double id){
+		return ic-id;
+	}
+	String calcularObs(int cantidad){
+		if(cantidad>=Tienda.cantidadMinimaObsequiable) return Tienda.obsequio;
+		else return "No recibe obsequio";	
+	}
+	String calcularPremio(){
+		if(Tienda.numeroCliente==Tienda.numeroClienteSorpresa) return Tienda.premioSorpresa;
+		else return "No recibe premio sorpresa";
+	}
+	void mostrarResultados(String nombre,double precio, int cantidad,double ic,double id,double ip,String obsequio,String premio){
+		txtS.setText("");
+		imprimir("Marca		: " + nombre);
+		imprimir("Precio		: " + precio);
+		imprimir("Cantidad		: " + cantidad);
+		imprimir("Importe compra		: " + String.format("%.2f",ic));
+		imprimir("Importe de descuento	: " + String.format("%.2f",id));
+		imprimir("Importe a pagar		: " + String.format("%.2f",ip));
+		imprimir("Obsequio		: " + obsequio);
+		imprimir("Premio sorpresa	: "+premio);
+	}
 	protected void actionPerformedBtnVender(ActionEvent arg0) {
-		double ic, ip, id, precio; 
-		int cantidad,marca; 
-		String nombre, obsequio;
-		marca= cboMarca.getSelectedIndex();
-		nombre = String.valueOf(cboMarca.getSelectedItem());
-		precio = Double.parseDouble(txtPrecio.getText());
-		cantidad = Integer.parseInt(txtCantidad.getText());
-		ic = precio * cantidad;
-		if(cantidad<=5) id = Tienda.porcentaje1/100 * ic;
-		else if (cantidad<=10) id = Tienda.porcentaje2/100 * ic;
-		else if (cantidad<=15) id = Tienda.porcentaje3/100 * ic;
-		else id = Tienda.porcentaje4/100 * ic;
-		ip = ic - id;
-		if(cantidad>=Tienda.cantidadMinimaObsequiable) obsequio = Tienda.obsequio;
-		else obsequio = "No hay obsequio";	
-		contarCantidadVentas(marca);
-		acumularTotalUnidadesVendidas(marca,cantidad);
-		acumularImporteTotal(marca, ip);
-		sumarCantidadTotalGeneral();
-		sumarImporteTotalGeneral();
-		txtS.setText("Marca		: " + nombre + "\n");
-		txtS.append ("Precio		: " + precio + "\n");
-		txtS.append ("Cantidad		: " + cantidad + "\n");
-		txtS.append ("Importe compra		: " + ic + "\n");
-		txtS.append ("Importe de descuento	: " + id + "\n");
-		txtS.append ("Importe a pagar		: " + ip + "\n");
-		txtS.append ("Obsequio		: " + obsequio + "\n");
-		txtS.append ("Premio sorpresa	: ");
+		procesar();
+	}
+	void procesar(){
+		try {
+			double ic, ip, id, precio; 
+			int cantidad,marca; 
+			String nombre, obsequio, premio;
+			marca= cboMarca.getSelectedIndex();
+			nombre = String.valueOf(cboMarca.getSelectedItem());
+			precio = Double.parseDouble(txtPrecio.getText());
+			cantidad = Integer.parseInt(txtCantidad.getText());
+			if(cantidad<0){
+				mensaje("No se aceptan valores negativos");
+			}else {
+				ic = calcularIC(precio,cantidad);
+				id = calcularID(cantidad,ic);
+				ip = calcularIP(ic,id);
+				obsequio = calcularObs(cantidad);
+				premio = calcularPremio();
+				efectuarIncrementos(marca,cantidad,ip);
+				sumarCantidadTotalGeneral();
+				sumarImporteTotalGeneral();
+				mostrarResultados(nombre,precio,cantidad,ic,id,ip,obsequio,premio);	
+			}		
+		}
+		catch (Exception e) {
+			mensaje("Datos no válidos");
+		}
+		
 	}
 	protected void actionPerformedBtnCerrar(ActionEvent arg0) {
 		dispose();

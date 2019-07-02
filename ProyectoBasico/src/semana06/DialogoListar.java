@@ -93,6 +93,9 @@ public class DialogoListar extends JDialog implements ActionListener {
 	}
 
 	protected void actionPerformedBtnListar(ActionEvent e) {
+		procesar();
+	}
+	void procesar(){
 		txtS.setText("");
 		imprimir("Listado de Colchones"+"\n");
 		imprimir("Marca     : "+Tienda.marca0);

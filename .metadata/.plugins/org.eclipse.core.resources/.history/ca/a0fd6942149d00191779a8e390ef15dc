@@ -1,0 +1,221 @@
+package semana06;
+
+import java.awt.BorderLayout;
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import javax.swing.JComboBox;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.DefaultComboBoxModel;
+import java.awt.event.ItemListener;
+import java.awt.event.ItemEvent;
+
+public class DialogoGenerarReportes extends JDialog implements ActionListener, ItemListener {
+
+	private final JPanel contentPanel = new JPanel();
+	private JLabel lblNewLabel;
+	private JComboBox<String> cboTipoReporte;
+	private JButton btnCerrar;
+	private JScrollPane scrollPane;
+	private JTextArea txtS;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		try {
+			DialogoGenerarReportes dialog = new DialogoGenerarReportes();
+			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+			dialog.setVisible(true);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * Create the dialog.
+	 */
+	public DialogoGenerarReportes() {
+		setTitle("Generar Reportes");
+		setBounds(100, 100, 540, 400);
+		getContentPane().setLayout(new BorderLayout());
+		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		getContentPane().add(contentPanel, BorderLayout.CENTER);
+		contentPanel.setLayout(null);
+		
+		lblNewLabel = new JLabel("Tipo de Reporte");
+		lblNewLabel.setBounds(10, 11, 91, 14);
+		contentPanel.add(lblNewLabel);
+		
+		cboTipoReporte = new JComboBox<String>();
+		cboTipoReporte.addItemListener(this);
+		cboTipoReporte.setModel(new DefaultComboBoxModel<String>(new String[] {"Ventas por marca", "Marcas con venta \u00F3ptima", "Precios en relaci\u00F3n al promedio", "Precio promedio, mayor y menor"}));
+		cboTipoReporte.setBounds(101, 8, 300, 20);
+		contentPanel.add(cboTipoReporte);
+		
+		btnCerrar = new JButton("Cerrar");
+		btnCerrar.addActionListener(this);
+		btnCerrar.setBounds(425, 7, 89, 23);
+		contentPanel.add(btnCerrar);
+		
+		scrollPane = new JScrollPane();
+		scrollPane.setBounds(10, 36, 504, 314);
+		contentPanel.add(scrollPane);
+		
+		txtS = new JTextArea();
+		scrollPane.setViewportView(txtS);
+		imprimir("Ventas por colchón" + "\n");
+		imprimir("Marcas			: Suavestar");
+		imprimir("Cantidad de ventas		: "+Tienda.Ventas0);
+		imprimir("Cantidad total de unidades vendidas 	: "+Tienda.TotalUnidadesVendidas0);
+		imprimir("Importente total acumulado		: "+Tienda.ImporteTotal0 +"\n");
+		imprimir("Marcas			: Springwall");
+		imprimir("Cantidad de ventas		: "+Tienda.Ventas1);
+		imprimir("Cantidad total de unidades vendidas 	: "+Tienda.TotalUnidadesVendidas1);
+		imprimir("Importente total acumulado		: "+Tienda.ImporteTotal1 +"\n");
+		imprimir("Marcas			: Paraiso");
+		imprimir("Cantidad de ventas		: "+Tienda.Ventas2);
+		imprimir("Cantidad total de unidades vendidas 	: "+Tienda.TotalUnidadesVendidas2);
+		imprimir("Importente total acumulado		: "+Tienda.ImporteTotal2 +"\n");
+		imprimir("Marcas			: Drimer");
+		imprimir("Cantidad de ventas		: "+Tienda.Ventas3);
+		imprimir("Cantidad total de unidades vendidas 	: "+Tienda.TotalUnidadesVendidas3);
+		imprimir("Importente total acumulado		: "+Tienda.ImporteTotal3 +"\n");
+		imprimir("Marcas			: Cisne");
+		imprimir("Cantidad de ventas		: "+Tienda.Ventas4);
+		imprimir("Cantidad total de unidades vendidas 	: "+Tienda.TotalUnidadesVendidas4);
+		imprimir("Importente total acumulado		: "+Tienda.ImporteTotal4 +"\n");
+		imprimir("Importe total general acumulado	: "+Tienda.ImporteTotalGeneral);
+		imprimir("Cantidad total general de ventas	: "+Tienda.CantidadTotalGeneral);
+	}
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnCerrar) {
+			actionPerformedBtnNewButton(e);
+		}
+	}
+	protected void actionPerformedBtnNewButton(ActionEvent e) {
+		dispose();
+	}
+	public void itemStateChanged(ItemEvent arg0) {
+		if (arg0.getSource() == cboTipoReporte) {
+			itemStateChangedCboTipoReporte(arg0);
+		}
+	}
+	void imprimir(String texto){
+		txtS.append(""+texto+"\n");
+	}
+	double calcularPromedio(){
+		return (Tienda.precio0+Tienda.precio1+Tienda.precio2+Tienda.precio3+Tienda.precio4)/5;
+	}
+	double calcularMayor(){
+		double mayor=Tienda.precio0;
+		if(Tienda.precio1>mayor) mayor=Tienda.precio1;
+		if(Tienda.precio2>mayor) mayor=Tienda.precio2;
+		if(Tienda.precio3>mayor) mayor=Tienda.precio3;
+		if(Tienda.precio4>mayor) mayor=Tienda.precio4; 
+		return mayor;
+	}
+	double calcularMenor(){
+		double menor=Tienda.precio0;
+		if(Tienda.precio1<menor) menor=Tienda.precio1;
+		if(Tienda.precio2<menor) menor=Tienda.precio2;
+		if(Tienda.precio3<menor) menor=Tienda.precio3;
+		if(Tienda.precio4<menor) menor=Tienda.precio4; 
+		return menor;
+	}
+	void mostrarVentasMarca(){
+		txtS.setText("");
+		imprimir("Ventas por colchón" + "\n");
+		imprimir("Marcas			: Suavestar");
+		imprimir("Cantidad de ventas		: " + Tienda.Ventas0);
+		imprimir("Cantidad total de unidades vendidas 	: " + Tienda.TotalUnidadesVendidas0);
+		imprimir("Importente total acumulado		: "+ Tienda.ImporteTotal0+"\n");
+		imprimir("Marcas			: Springwall");
+		imprimir("Cantidad de ventas		: " + Tienda.Ventas1);
+		imprimir("Cantidad total de unidades vendidas 	: " + Tienda.TotalUnidadesVendidas1);
+		imprimir("Importente total acumulado		: "+ Tienda.ImporteTotal1+"\n");
+		imprimir("Marcas			: Paraiso");
+		imprimir("Cantidad de ventas		: " + Tienda.Ventas2);
+		imprimir("Cantidad total de unidades vendidas 	: " + Tienda.TotalUnidadesVendidas2);
+		imprimir("Importente total acumulado		: "+ Tienda.ImporteTotal2+"\n");
+		imprimir("Marcas			: Drimer");
+		imprimir("Cantidad de ventas		: " + Tienda.Ventas3);
+		imprimir("Cantidad total de unidades vendidas 	: " + Tienda.TotalUnidadesVendidas3);
+		imprimir("Importente total acumulado		: "+ Tienda.ImporteTotal3+"\n");
+		imprimir("Marcas			: Cisne");
+		imprimir("Cantidad de ventas		: " + Tienda.Ventas4);
+		imprimir("Cantidad total de unidades vendidas 	: " + Tienda.TotalUnidadesVendidas4);
+		imprimir("Importente total acumulado		: "+ Tienda.ImporteTotal4+"\n");
+		imprimir("Importe total general acumulado	: " + Tienda.ImporteTotalGeneral);
+		imprimir("Cantidad total general de ventas	: " + Tienda.CantidadTotalGeneral);
+	}
+	void mostrarRelacionPromedio(double promedio){
+		String menoroMayor0,menoroMayor1,menoroMayor2,menoroMayor3,menoroMayor4;
+		if(Tienda.precio0>promedio) menoroMayor0="mayor al promedio";
+		else menoroMayor0="menor al promedio";
+		if(Tienda.precio1>promedio) menoroMayor1="mayor al promedio";
+		else menoroMayor1="menor al promedio";
+		if(Tienda.precio2>promedio) menoroMayor2="mayor al promedio";
+		else menoroMayor2="menor al promedio";
+		if(Tienda.precio3>promedio) menoroMayor3="mayor al promedio";
+		else menoroMayor3="menor al promedio";
+		if(Tienda.precio4>promedio) menoroMayor4="mayor al promedio";
+		else menoroMayor4="menor al promedio";
+		txtS.setText("");
+		imprimir("Precios en relación al promedio" + "\n");
+		imprimir("Nombre	: Suavestar");
+		imprimir("Precio	: "+ Tienda.precio0+"\n");
+		imprimir("Nombre	: Springwall");
+		imprimir("Precio	: "+ Tienda.precio1+"\n");
+		imprimir("Nombre	: Paraiso");
+		imprimir("Precio	: "+ Tienda.precio2+"\n");
+		imprimir("Nombre	: Drimer");
+		imprimir("Precio	: "+ Tienda.precio3+"\n");
+		imprimir("Nombre	: Cisne");
+		imprimir("Precio	: "+ Tienda.precio4+"\n");
+		imprimir("Precio promedio : S/ 559.0");
+	}
+	void mostrarPreciosProMayMen(double promedio,double menor, double mayor){
+		txtS.setText("");
+		imprimir("Precio promedio, menor y mayor" + "\n");
+		imprimir("Precio promedio : "+String.format("%.2f",promedio));
+		imprimir("Precio menor	  : "+String.format("%.2f",menor));
+		imprimir("Precio mayor	  : "+String.format("%.2f",mayor));
+	}
+	protected void itemStateChangedCboTipoReporte(ItemEvent arg0) {
+		procesar();
+	}
+	void procesar(){
+		int item = cboTipoReporte.getSelectedIndex();
+		double promedio,mayor,menor;
+		promedio=calcularPromedio();
+		mayor=calcularMayor();
+		menor=calcularMenor();
+		switch (item) {
+			case 0:
+				mostrarVentasMarca();
+				break;
+			case 1:
+				txtS.setText("Colchones con venta óptima" + "\n\n");
+				txtS.append ("Marca			: Springwall" + "\n");
+				txtS.append ("Cantidad total de unidades vendidas	: 15 (5 más que la cantidad óptima)" + "\n\n");
+				txtS.append ("Marca			: Cisne" + "\n");
+				txtS.append ("Cantidad total de unidades vendidas	: 25 (15 más que la cantidad óptima)" + "\n");
+				txtS.append ("." + "\n");
+				txtS.append ("." + "\n");
+				txtS.append (".");
+				break;
+			case 2:
+				mostrarRelacionPromedio();
+				break;
+			default:	
+				mostrarPreciosProMayMen(promedio, menor, mayor);
+		}
+	}
+}
