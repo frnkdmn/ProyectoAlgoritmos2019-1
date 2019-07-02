@@ -55,15 +55,15 @@ public class DialogoConsultar extends JDialog implements ActionListener, ItemLis
 		contentPanel.setLayout(null);
 		
 		lblMarca = new JLabel("Marca");
-		lblMarca.setBounds(10, 30, 46, 14);
+		lblMarca.setBounds(10, 30, 99, 14);
 		contentPanel.add(lblMarca);
 		
 		lblPrecio = new JLabel("Precio (S/.)");
-		lblPrecio.setBounds(10, 55, 61, 14);
+		lblPrecio.setBounds(10, 55, 99, 14);
 		contentPanel.add(lblPrecio);
 		
 		lblGarantia = new JLabel("Garant\u00EDa (a\u00F1os)");
-		lblGarantia.setBounds(10, 80, 81, 14);
+		lblGarantia.setBounds(10, 80, 99, 14);
 		contentPanel.add(lblGarantia);
 		
 		lblTamaño = new JLabel("Tama\u00F1o");
@@ -75,31 +75,31 @@ public class DialogoConsultar extends JDialog implements ActionListener, ItemLis
 		contentPanel.add(lblMaterial);
 		
 		txtPrecio = new JTextField();
-		txtPrecio.setBounds(112, 52, 155, 20);
 		txtPrecio.setEditable(false);
+		txtPrecio.setBounds(119, 52, 155, 20);
 		contentPanel.add(txtPrecio);
 		txtPrecio.setColumns(10);
 		
 		txtGarantia = new JTextField();
-		txtGarantia.setBounds(112, 77, 155, 20);
+		txtGarantia.setBounds(119, 77, 155, 20);
 		txtGarantia.setEditable(false);
 		contentPanel.add(txtGarantia);
 		txtGarantia.setColumns(10);
 		
 		txtTamaño = new JTextField();
-		txtTamaño.setBounds(112, 102, 155, 20);
+		txtTamaño.setBounds(119, 102, 155, 20);
 		txtTamaño.setEditable(false);
 		contentPanel.add(txtTamaño);
 		txtTamaño.setColumns(10);
 		
 		txtMaterial = new JTextField();
-		txtMaterial.setBounds(112, 127, 155, 20);
 		txtMaterial.setEditable(false);
+		txtMaterial.setBounds(119, 127, 155, 20);
 		contentPanel.add(txtMaterial);
 		txtMaterial.setColumns(10);
 		
 		cboMarca = new JComboBox<String>();
-		cboMarca.setBounds(112, 27, 155, 20);
+		cboMarca.setBounds(119, 27, 155, 20);
 		cboMarca.addItemListener(this);
 		cboMarca.addActionListener(this);
 		cboMarca.setModel(new DefaultComboBoxModel<String>(new String[] {"Suavestar", "Springwall", "Paraiso", "Drimer", "Cisne"}));
@@ -109,7 +109,7 @@ public class DialogoConsultar extends JDialog implements ActionListener, ItemLis
 		btnCerrar.setBounds(335, 26, 89, 23);
 		btnCerrar.addActionListener(this);
 		contentPanel.add(btnCerrar);
-		// fijar Suavizar como predeterminado
+		// Cuando la caja diálogo se haga visible deberán verse inmediatamente los datos del primer colchón.
 		txtPrecio.setText(""+ Tienda.precio0);
 		txtGarantia.setText("" + Tienda.garantia0);
 		txtTamaño.setText("" + Tienda.tamaño0);
@@ -120,6 +120,7 @@ public class DialogoConsultar extends JDialog implements ActionListener, ItemLis
 			actionPerformedBtnCerrar(e);
 		}
 	}
+	//Cerrar Dialogo.
 	protected void actionPerformedBtnCerrar(ActionEvent e) {
 		dispose();
 	}
@@ -129,38 +130,59 @@ public class DialogoConsultar extends JDialog implements ActionListener, ItemLis
 			itemStateChangedCboMarca(arg0);
 		}
 	}
+	//Métodos 
+	void mostrarSuavestar(){
+		txtPrecio.setText(""+ Tienda.precio0);
+		txtGarantia.setText("" + Tienda.garantia0);
+		txtTamaño.setText("" + Tienda.tamaño0);
+		txtMaterial.setText("" + Tienda.material0);
+	}
+	void mostrarSpringwall(){
+		txtPrecio.setText("" + Tienda.precio1);
+		txtGarantia.setText("" + Tienda.garantia1);
+		txtTamaño.setText("" + Tienda.tamaño1);
+		txtMaterial.setText("" + Tienda.material1);
+	}
+	void mostrarParaiso(){
+		txtPrecio.setText("" + Tienda.precio2);
+		txtGarantia.setText("" + Tienda.garantia2);
+		txtTamaño.setText("" + Tienda.tamaño2);
+		txtMaterial.setText("" + Tienda.material2);
+	}
+	void mostrarDrimer(){
+		txtPrecio.setText("" + Tienda.precio3);
+		txtGarantia.setText("" + Tienda.garantia3);
+		txtTamaño.setText("" + Tienda.tamaño3);
+		txtMaterial.setText("" + Tienda.material3);
+	}
+	void mostrarCisne(){
+		txtPrecio.setText("" + Tienda.precio4);
+		txtGarantia.setText("" + Tienda.garantia4);
+		txtTamaño.setText("" + Tienda.tamaño4);
+		txtMaterial.setText("" + Tienda.material4);		
+	}
+	
 	protected void itemStateChangedCboMarca(ItemEvent arg0) {
+		elegircolchon();
+	}
+	//Elegir una marca de colchón y consultar sus datos. 
+	void elegircolchon(){
 		int item = cboMarca.getSelectedIndex();
 		switch(item) {
 			case 0:
-				txtPrecio.setText(""+ Tienda.precio0);
-				txtGarantia.setText("" + Tienda.garantia0);
-				txtTamaño.setText("" + Tienda.tamaño0);
-				txtMaterial.setText("" + Tienda.material0);
+				mostrarSuavestar(); 
 				break;
 			case 1:
-				txtPrecio.setText("" + Tienda.precio1);
-				txtGarantia.setText("" + Tienda.garantia1);
-				txtTamaño.setText("" + Tienda.tamaño1);
-				txtMaterial.setText("" + Tienda.material1);
+				mostrarSpringwall();
 				break;
 			case 2:
-				txtPrecio.setText("" + Tienda.precio2);
-				txtGarantia.setText("" + Tienda.garantia2);
-				txtTamaño.setText("" + Tienda.tamaño2);
-				txtMaterial.setText("" + Tienda.material2);
+				mostrarParaiso();
 				break;
 			case 3:
-				txtPrecio.setText("" + Tienda.precio3);
-				txtGarantia.setText("" + Tienda.garantia3);
-				txtTamaño.setText("" + Tienda.tamaño3);
-				txtMaterial.setText("" + Tienda.material3);
+				mostrarDrimer();
 				break;
 			default:
-				txtPrecio.setText("" + Tienda.precio4);
-				txtGarantia.setText("" + Tienda.garantia4);
-				txtTamaño.setText("" + Tienda.tamaño4);
-				txtMaterial.setText("" + Tienda.material4);		
+				mostrarCisne();
 		}
 	}
 }

@@ -8,6 +8,7 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -40,6 +41,7 @@ public class DialogoConfigurarPS extends JDialog implements ActionListener {
 	 * Create the dialog.
 	 */
 	public DialogoConfigurarPS() {
+		setTitle("Configurar premio sorpresa");
 		setBounds(100, 100, 420, 160);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -88,9 +90,26 @@ public class DialogoConfigurarPS extends JDialog implements ActionListener {
 	protected void actionPerformedBtnCerrar(ActionEvent arg0) {
 		dispose();
 	}
+	void mensaje(String msj){
+		JOptionPane.showMessageDialog(this, msj);
+	}
 	protected void actionPerformedBtnAceptar(ActionEvent arg0) {
-		Tienda.numeroClienteSorpresa = Integer.parseInt(txtNumeroCliente.getText());
-		Tienda.premioSorpresa = txtPremioSorpresa.getText();
-		dispose();
+		procesar();
+	}
+	void procesar(){
+		try {
+			int numeroCliente= Integer.parseInt(txtNumeroCliente.getText());
+			String premio= txtPremioSorpresa.getText();
+			if(numeroCliente<0){
+				mensaje("No se aceptan valores negativos");
+			}else{
+				Tienda.numeroClienteSorpresa=numeroCliente;
+				Tienda.premioSorpresa=premio;
+				dispose();
+			}
+		}
+		catch (Exception e) {
+			mensaje("Datos no válidos");
+		}
 	}
 }

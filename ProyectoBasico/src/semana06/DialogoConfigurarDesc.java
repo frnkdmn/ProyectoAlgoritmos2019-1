@@ -8,6 +8,7 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -48,6 +49,7 @@ public class DialogoConfigurarDesc extends JDialog implements ActionListener {
 	 * Create the dialog.
 	 */
 	public DialogoConfigurarDesc() {
+		setTitle("Configurar porcentajes de descuento");
 		setBounds(100, 100, 450, 200);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -115,6 +117,7 @@ public class DialogoConfigurarDesc extends JDialog implements ActionListener {
 		label_3 = new JLabel("%");
 		label_3.setBounds(222, 90, 46, 14);
 		contentPanel.add(label_3);
+		//valores iniciales.
 		txt1a5.setText(String.valueOf(Tienda.porcentaje1));
 		txt6a10.setText(String.valueOf(Tienda.porcentaje2));
 		txt11a15.setText(String.valueOf(Tienda.porcentaje3));
@@ -128,12 +131,33 @@ public class DialogoConfigurarDesc extends JDialog implements ActionListener {
 			actionPerformedBtnAceptar(arg0);
 		}
 	}
+	//Metodo validacion.
+	void mensaje(String msj){
+		JOptionPane.showMessageDialog(this, msj);
+	}
 	protected void actionPerformedBtnAceptar(ActionEvent arg0) {
-		Tienda.porcentaje1 = Double.parseDouble(txt1a5.getText());
-		Tienda.porcentaje2 = Double.parseDouble(txt6a10.getText());
-		Tienda.porcentaje3 = Double.parseDouble(txt11a15.getText());
-		Tienda.porcentaje4 = Double.parseDouble(txt15amas.getText());
-		dispose();
+		procesar();	
+	}
+	void procesar(){
+		try {
+			double descuento1=Double.parseDouble(txt1a5.getText());
+			double descuento2=Double.parseDouble(txt6a10.getText());
+			double descuento3=Double.parseDouble(txt11a15.getText());
+			double descuento4=Double.parseDouble(txt15amas.getText());
+			if(descuento1<0||descuento2<0||descuento3<0||descuento4<0){
+				mensaje("No se aceptan valores negativos");
+			} else{
+				Tienda.porcentaje1 = descuento1;
+				Tienda.porcentaje2 = descuento2;
+				Tienda.porcentaje3 = descuento3;
+				Tienda.porcentaje4 = descuento4;
+				dispose();
+			}	
+		}
+		catch (Exception e) {
+			mensaje("Datos no válidos");
+		}
+		
 	}
 	protected void actionPerformedBtnCancelar(ActionEvent arg0) {
 		dispose();

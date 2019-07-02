@@ -8,6 +8,7 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -38,6 +39,7 @@ public class DialogoConfigurarObse extends JDialog implements ActionListener {
 	 * Create the dialog.
 	 */
 	public DialogoConfigurarObse() {
+		setTitle("Configurar obsequio");
 		setBounds(100, 100, 500, 150);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -89,10 +91,30 @@ public class DialogoConfigurarObse extends JDialog implements ActionListener {
 			actionPerformedBtnAceptar(e);
 		}
 	}
+	void mensaje(String msj){
+		JOptionPane.showMessageDialog(this, msj);
+	}
+	
 	protected void actionPerformedBtnAceptar(ActionEvent e) {
-		Tienda.cantidadMinimaObsequiable = Integer.parseInt(txtCantidadMinima.getText());
-		Tienda.obsequio = txtObsequio.getText();
-		dispose();
+		procesar();
+	}
+	void procesar(){
+		
+		try {
+			int cantidadMinima= Integer.parseInt(txtCantidadMinima.getText());
+			String obsequio= txtObsequio.getText();
+			if(cantidadMinima<0){
+				mensaje("No se aceptan valores negativos");
+			}else{
+				Tienda.cantidadMinimaObsequiable=cantidadMinima;
+				Tienda.obsequio=obsequio;
+				dispose();
+			}
+		}
+		catch (Exception e) {
+			mensaje("Datos no válidos");
+		}
+		
 	}
 	protected void actionPerformedBtnCerrar(ActionEvent e) {
 		dispose();

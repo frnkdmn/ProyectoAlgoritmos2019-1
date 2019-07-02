@@ -6,6 +6,7 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 import javax.swing.DefaultComboBoxModel;
@@ -117,44 +118,60 @@ public class DialogoModificar extends JDialog implements ItemListener, ActionLis
 		txtTamaño.setText("" + Tienda.tamaño0);
 		txtMaterial.setText("" + Tienda.material0);
 	}
-	
 	public void itemStateChanged(ItemEvent arg0) {
 		if (arg0.getSource() == cboMarca) {
 			itemStateChangedCboMarca(arg0);
 		}
 	}
+	//Métodos mostrar datos.
+	void mostrarSuavestar(){
+		txtPrecio.setText(""+ Tienda.precio0);
+		txtGarantia.setText("" + Tienda.garantia0);
+		txtTamaño.setText("" + Tienda.tamaño0);
+		txtMaterial.setText("" + Tienda.material0);
+	}
+	void mostrarSpringwall(){
+		txtPrecio.setText("" + Tienda.precio1);
+		txtGarantia.setText("" + Tienda.garantia1);
+		txtTamaño.setText("" + Tienda.tamaño1);
+		txtMaterial.setText("" + Tienda.material1);
+	}
+	void mostrarParaiso(){
+		txtPrecio.setText("" + Tienda.precio2);
+		txtGarantia.setText("" + Tienda.garantia2);
+		txtTamaño.setText("" + Tienda.tamaño2);
+		txtMaterial.setText("" + Tienda.material2);
+	}
+	void mostrarDrimer(){
+		txtPrecio.setText("" + Tienda.precio3);
+		txtGarantia.setText("" + Tienda.garantia3);
+		txtTamaño.setText("" + Tienda.tamaño3);
+		txtMaterial.setText("" + Tienda.material3);
+	}
+	void mostrarCisne(){
+		txtPrecio.setText("" + Tienda.precio4);
+		txtGarantia.setText("" + Tienda.garantia4);
+		txtTamaño.setText("" + Tienda.tamaño4);
+		txtMaterial.setText("" + Tienda.material4);		
+	}
+	//Elegir una marca de colchón y consultar sus datos. 
 	protected void itemStateChangedCboMarca(ItemEvent arg0) {
 		int item = cboMarca.getSelectedIndex();
 		switch(item) {
 			case 0:
-				txtPrecio.setText(""+ Tienda.precio0);
-				txtGarantia.setText("" + Tienda.garantia0);
-				txtTamaño.setText("" + Tienda.tamaño0);
-				txtMaterial.setText("" + Tienda.material0);
+				mostrarSuavestar();
 				break;
 			case 1:
-				txtPrecio.setText("" + Tienda.precio1);
-				txtGarantia.setText("" + Tienda.garantia1);
-				txtTamaño.setText("" + Tienda.tamaño1);
-				txtMaterial.setText("" + Tienda.material1);
+				mostrarSpringwall();
 				break;
 			case 2:
-				txtPrecio.setText("" + Tienda.precio2);
-				txtGarantia.setText("" + Tienda.garantia2);
-				txtTamaño.setText("" + Tienda.tamaño2);
-				txtMaterial.setText("" + Tienda.material2);
+				mostrarParaiso();
 				break;
 			case 3:
-				txtPrecio.setText("" + Tienda.precio3);
-				txtGarantia.setText("" + Tienda.garantia3);
-				txtTamaño.setText("" + Tienda.tamaño3);
-				txtMaterial.setText("" + Tienda.material3);
+				mostrarDrimer();
 				break;
 			default:
-				txtPrecio.setText("" + Tienda.precio4);
-				txtGarantia.setText("" + Tienda.garantia4);
-				txtTamaño.setText("" + Tienda.tamaño4);
-				txtMaterial.setText("" + Tienda.material4);		
+				mostrarCisne();
 		}
 	}
 	public void actionPerformed(ActionEvent arg0) {
@@ -165,42 +182,86 @@ public class DialogoModificar extends JDialog implements ItemListener, ActionLis
 			actionPerformedBtnCerrar(arg0);
 		}
 	}
+	//Cerrar dialogo.
 	protected void actionPerformedBtnCerrar(ActionEvent arg0) {
 		dispose();
 	}
+	//Variables para cambiar datos.
+	
+	//Métodos cambiar datos.
+	void cambiarSuavestar(double precio,int garantia,String tamaño,String material){
+		Tienda.precio0 = precio;
+		Tienda.garantia0 = garantia;
+		Tienda.tamaño0 = tamaño;
+		Tienda.material0 = material;
+	}
+	void cambiarSpringwall(double precio,int garantia,String tamaño,String material){
+		Tienda.precio1 = precio;
+		Tienda.garantia1 = garantia;
+		Tienda.tamaño1 = tamaño;
+		Tienda.material1 = material;
+	}
+	void cambiarParaiso(double precio,int garantia,String tamaño,String material){
+		Tienda.precio2 = precio;
+		Tienda.garantia2 = garantia;
+		Tienda.tamaño2 = tamaño;
+		Tienda.material2 = material;
+	}
+	void cambiarDrimer(double precio,int garantia,String tamaño,String material){
+		Tienda.precio3 = precio;
+		Tienda.garantia3 = garantia;
+		Tienda.tamaño3 = tamaño;
+		Tienda.material3 = material;
+	}
+	void cambiarCisne(double precio,int garantia,String tamaño,String material){
+		Tienda.precio4 = precio;
+		Tienda.garantia4 = garantia;
+		Tienda.tamaño4 = tamaño;
+		Tienda.material4 = material;	
+	}
+	//Metodo validacion.
+	void mensaje(String msj){
+		JOptionPane.showMessageDialog(this, msj);
+	}
+	
 	protected void actionPerformedBtnGrabar(ActionEvent arg0) {
-		int item = cboMarca.getSelectedIndex();
-		switch(item) {
-			case 0:
-				Tienda.precio0 = Double.parseDouble(txtPrecio.getText());
-				Tienda.garantia0 = Integer.parseInt(txtGarantia.getText());
-				Tienda.tamaño0 = txtTamaño.getText();
-				Tienda.material0 = txtMaterial.getText();
-				break;
-			case 1:
-				Tienda.precio1 = Double.parseDouble(txtPrecio.getText());
-				Tienda.garantia1 = Integer.parseInt(txtGarantia.getText());
-				Tienda.tamaño1 = txtTamaño.getText();
-				Tienda.material1 = txtMaterial.getText();
-				break;
-			case 2:
-				Tienda.precio2 = Double.parseDouble(txtPrecio.getText());
-				Tienda.garantia2 = Integer.parseInt(txtGarantia.getText());
-				Tienda.tamaño2 = txtTamaño.getText();
-				Tienda.material2 = txtMaterial.getText();
-				break;
-			case 3:
-				Tienda.precio3 = Double.parseDouble(txtPrecio.getText());
-				Tienda.garantia3 = Integer.parseInt(txtGarantia.getText());
-				Tienda.tamaño3 = txtTamaño.getText();
-				Tienda.material3 = txtMaterial.getText();
-				break;
-			default:
-				Tienda.precio4 = Double.parseDouble(txtPrecio.getText());
-				Tienda.garantia4 = Integer.parseInt(txtGarantia.getText());
-				Tienda.tamaño4 = txtTamaño.getText();
-				Tienda.material4 = txtMaterial.getText();		
+		grabar();
+	}
+	//Graba los cambios y cierra. 
+	void grabar(){
+		try {
+			//variables leidas del dialogo.
+			double precio=Double.parseDouble(txtPrecio.getText());
+			int garantia=Integer.parseInt(txtGarantia.getText());
+			String tamaño=txtTamaño.getText();
+			String material=txtMaterial.getText();
+			int item = cboMarca.getSelectedIndex();
+			//validacion de numeros negativos.
+			if(precio<0 ||garantia<0){
+				mensaje("No se aceptan datos negativos");
+			} else {
+				switch(item) {
+					case 0:
+						cambiarSuavestar(precio,garantia,tamaño,material);
+						break;
+					case 1:
+						cambiarSpringwall(precio,garantia,tamaño,material);
+						break;
+					case 2:
+						cambiarParaiso(precio,garantia,tamaño,material);
+						break;
+					case 3:
+						cambiarDrimer(precio,garantia,tamaño,material);
+						break;
+					default:
+						cambiarCisne(precio,garantia,tamaño,material);
+				}
+				dispose();
+			}
+			
 		}
-		dispose();
+		catch (Exception e) {
+			mensaje("Datos no válidos");
+		}
 	}
 }

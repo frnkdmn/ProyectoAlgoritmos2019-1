@@ -85,37 +85,40 @@ public class DialogoListar extends JDialog implements ActionListener {
 			actionPerformedBtnCerrar(e);
 		}
 	}
-
+	void imprimir(String texto){
+		txtS.append(""+texto+"\n");
+	}
 	protected void actionPerformedBtnCerrar(ActionEvent e) {
 		dispose();
 	}
 
 	protected void actionPerformedBtnListar(ActionEvent e) {
-		txtS.setText("Listado de Colchones"+"\n\n");
-		txtS.append("Marca     : Suavestar"+"\n");
-		txtS.append("Precio    : S/ 499.0"+"\n");
-		txtS.append("Garantía  : 7 años"+"\n");
-		txtS.append("Tamaño    : 1 1/2 Plaza"+"\n");
-		txtS.append("Material  : Tela Tricot Acolchada"+"\n\n");
-		txtS.append("Marca     : Springwall"+"\n");
-		txtS.append("Precio    : S/ 679.0"+"\n");
-		txtS.append("Garantía  : 10 años"+"\n");
-		txtS.append("Tamaño    : 2 Plazas"+"\n");
-		txtS.append("Material  : Tejido de Punto de Algodón"+"\n\n");
-		txtS.append("Marca     : Paraiso"+"\n");
-		txtS.append("Precio    : S/ 479.0"+"\n");
-		txtS.append("Garantía  : 5 años"+"\n");
-		txtS.append("Tamaño    : 1 1/2 Plazas"+"\n");
-		txtS.append("Material  : Tejido de Punto"+"\n\n");
-		txtS.append("Marca     : Drimer"+"\n");
-		txtS.append("Precio    : S/ 749.0"+"\n");
-		txtS.append("Garantía  : 4 años"+"\n");
-		txtS.append("Tamaño    : Queen"+"\n");
-		txtS.append("Material  : Jacquard"+"\n\n");
-		txtS.append("Marca     : Cisne"+"\n");
-		txtS.append("Precio    : S/ 389.0"+"\n");
-		txtS.append("Garantía  : 2 años"+"\n");
-		txtS.append("Tamaño    : 1 1/2 Plazas"+"\n");
-		txtS.append("Material  : Tejido de Punto");
+		txtS.setText("");
+		imprimir("Listado de Colchones"+"\n");
+		imprimir("Marca     : "+Tienda.marca0);
+		imprimir("Precio    : "+Tienda.precio0);
+		imprimir("Garantía  : "+Tienda.garantia0);
+		imprimir("Tamaño    : "+Tienda.tamaño0);
+		imprimir("Material  : "+Tienda.material0+"\n");
+		imprimir("Marca     : "+Tienda.marca1);
+		imprimir("Precio    : "+Tienda.precio1);
+		imprimir("Garantía  : "+Tienda.garantia1);
+		imprimir("Tamaño    : "+Tienda.tamaño1);
+		imprimir("Material  : "+Tienda.material1+"\n");
+		imprimir("Marca     : "+Tienda.marca2);
+		imprimir("Precio    : "+Tienda.precio2);
+		imprimir("Garantía  : "+Tienda.garantia2);
+		imprimir("Tamaño    : "+Tienda.tamaño2);
+		imprimir("Material  : "+Tienda.material2+"\n");
+		imprimir("Marca     : "+Tienda.marca3);
+		imprimir("Precio    : "+Tienda.precio3);
+		imprimir("Garantía  : "+Tienda.garantia3);
+		imprimir("Tamaño    : "+Tienda.tamaño3);
+		imprimir("Material  : "+Tienda.material3+"\n");
+		imprimir("Marca     : "+Tienda.marca4);
+		imprimir("Precio    : "+Tienda.precio4);
+		imprimir("Garantía  : "+Tienda.garantia4);
+		imprimir("Tamaño    : "+Tienda.tamaño4);
+		imprimir("Material  : "+Tienda.material4);
 	}
 }

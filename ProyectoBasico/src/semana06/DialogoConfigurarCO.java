@@ -8,6 +8,7 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -73,9 +74,28 @@ public class DialogoConfigurarCO extends JDialog implements ActionListener {
 			actionPerformedBtnAceptar(arg0);
 		}
 	}
+	void mensaje(String msj){
+		JOptionPane.showMessageDialog(this, msj);
+	}
+	
 	protected void actionPerformedBtnAceptar(ActionEvent arg0) {
-		Tienda.cantidadOptima = Integer.parseInt(txtCantidadOptima.getText());
-		dispose();
+		procesar();
+	}
+	
+	void procesar(){	
+		try {
+			int cantidadOptima= Integer.parseInt(txtCantidadOptima.getText());
+			if(cantidadOptima<0){
+				mensaje("No se aceptan valores negativos");
+			}else{
+				Tienda.cantidadOptima=cantidadOptima;
+				dispose();
+			}
+		}
+		catch (Exception e) {
+			mensaje("Datos no válidos");
+		}
+		
 	}
 	
 	protected void actionPerformedBtnCerrar(ActionEvent arg0) {

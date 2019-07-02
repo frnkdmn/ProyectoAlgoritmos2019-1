@@ -70,7 +70,7 @@ public class DialogoAcercaDeTienda extends JDialog implements ActionListener {
 
 		lblAutor = new JLabel("Autores");
 		lblAutor.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lblAutor.setBounds(197, 58, 50, 15);
+		lblAutor.setBounds(196, 58, 50, 15);
 		contentPanel.add(lblAutor);
 		
 		separator = new JSeparator();
@@ -78,19 +78,19 @@ public class DialogoAcercaDeTienda extends JDialog implements ActionListener {
 		contentPanel.add(separator);
 		
 		lblFrancoRomeroMorales = new JLabel("Franco Romero Morales");
-		lblFrancoRomeroMorales.setBounds(151, 109, 166, 14);
+		lblFrancoRomeroMorales.setBounds(146, 108, 181, 14);
 		contentPanel.add(lblFrancoRomeroMorales);
 		
 		lblNewLabel = new JLabel("Bruno Alonso De La Cruz Aliaga");
-		lblNewLabel.setBounds(151, 84, 166, 14);
+		lblNewLabel.setBounds(146, 84, 181, 14);
 		contentPanel.add(lblNewLabel);
 		
 		lblNewLabel_1 = new JLabel("Nahun Jos\u00E9 Pecho Marcos");
-		lblNewLabel_1.setBounds(151, 134, 166, 14);
+		lblNewLabel_1.setBounds(146, 133, 181, 14);
 		contentPanel.add(lblNewLabel_1);
 		
 		lblNewLabel_2 = new JLabel("Sting Joel Clemente Romero");
-		lblNewLabel_2.setBounds(151, 159, 166, 14);
+		lblNewLabel_2.setBounds(146, 158, 181, 14);
 		contentPanel.add(lblNewLabel_2);
 	}
 
