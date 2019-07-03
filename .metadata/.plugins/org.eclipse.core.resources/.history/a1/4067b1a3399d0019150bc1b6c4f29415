@@ -156,8 +156,8 @@ public class DialogoVender extends JDialog implements ItemListener, ActionListen
 		Tienda.ventasTotalGeneral=Tienda.ventas0+Tienda.ventas1+Tienda.ventas2+Tienda.ventas3+Tienda.ventas4;
 	}
 	void sumarImporteTotalGeneral(){
-		Tienda.importeTotalGeneral=Tienda.importeTotal0+Tienda.importeTotal1+Tienda.importeTotal2+Tienda.importeTotal3
-				+Tienda.importeTotal4;
+		Tienda.ImporteTotalGeneral=Tienda.ImporteTotal0+Tienda.ImporteTotal1+Tienda.ImporteTotal2+Tienda.ImporteTotal3
+				+Tienda.ImporteTotal4;
 	}
 	double calcularIC(double precio,int cantidad){
 		return precio*cantidad;

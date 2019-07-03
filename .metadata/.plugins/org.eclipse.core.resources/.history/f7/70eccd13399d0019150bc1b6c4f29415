@@ -145,19 +145,19 @@ public class DialogoVender extends JDialog implements ItemListener, ActionListen
 	}
 	void efectuarIncrementos(int marca,int unidades,double ip){
 		switch(marca){
-			case 0: Tienda.importeTotal0+=ip;Tienda.totalUnidadesVendidas0+=unidades;Tienda.ventas0++; Tienda.numeroCliente++;break;
-			case 1: Tienda.importeTotal1+=ip;Tienda.totalUnidadesVendidas1+=unidades;Tienda.ventas1++; Tienda.numeroCliente++;break;
-			case 2: Tienda.importeTotal2+=ip;Tienda.totalUnidadesVendidas2+=unidades;Tienda.ventas2++; Tienda.numeroCliente++;break;
-			case 3: Tienda.importeTotal3+=ip;Tienda.totalUnidadesVendidas3+=unidades;Tienda.ventas3++; Tienda.numeroCliente++;break;
-			default: Tienda.importeTotal4+=ip;Tienda.totalUnidadesVendidas4+=unidades;Tienda.ventas4++;Tienda.numeroCliente++;
+			case 0: Tienda.ImporteTotal0+=ip;Tienda.TotalUnidadesVendidas0+=unidades;Tienda.Ventas0++; Tienda.numeroCliente++;break;
+			case 1: Tienda.ImporteTotal1+=ip;Tienda.TotalUnidadesVendidas1+=unidades;Tienda.Ventas1++; Tienda.numeroCliente++;break;
+			case 2: Tienda.ImporteTotal2+=ip;Tienda.TotalUnidadesVendidas2+=unidades;Tienda.Ventas2++; Tienda.numeroCliente++;break;
+			case 3: Tienda.ImporteTotal3+=ip;Tienda.TotalUnidadesVendidas3+=unidades;Tienda.Ventas3++; Tienda.numeroCliente++;break;
+			default: Tienda.ImporteTotal4+=ip;Tienda.TotalUnidadesVendidas4+=unidades;Tienda.Ventas4++;Tienda.numeroCliente++;
 		}
 	}
 	void sumarVentasTotalGeneral(){
-		Tienda.ventasTotalGeneral=Tienda.ventas0+Tienda.ventas1+Tienda.ventas2+Tienda.ventas3+Tienda.ventas4;
+		Tienda.VentasTotalGeneral=Tienda.Ventas0+Tienda.Ventas1+Tienda.Ventas2+Tienda.Ventas3+Tienda.Ventas4;
 	}
 	void sumarImporteTotalGeneral(){
-		Tienda.importeTotalGeneral=Tienda.importeTotal0+Tienda.importeTotal1+Tienda.importeTotal2+Tienda.importeTotal3
-				+Tienda.importeTotal4;
+		Tienda.ImporteTotalGeneral=Tienda.ImporteTotal0+Tienda.ImporteTotal1+Tienda.ImporteTotal2+Tienda.ImporteTotal3
+				+Tienda.ImporteTotal4;
 	}
 	double calcularIC(double precio,int cantidad){
 		return precio*cantidad;

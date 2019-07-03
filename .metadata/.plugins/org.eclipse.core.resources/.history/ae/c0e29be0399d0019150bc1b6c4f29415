@@ -174,44 +174,44 @@ public class DialogoGenerarReportes extends JDialog implements ActionListener, I
 		txtS.setText("");
 		int c=0;
 		imprimir("Colchones con venta óptima" + "\n");
-		if(Tienda.totalUnidadesVendidas0>Tienda.cantidadOptima){
+		if(Tienda.TotalUnidadesVendidas0>Tienda.cantidadOptima){
 			c++;
-			imprimirMayorVentaOptima(Tienda.totalUnidadesVendidas0, Tienda.cantidadOptima, Tienda.marca0);
+			imprimirMayorVentaOptima(Tienda.TotalUnidadesVendidas0, Tienda.cantidadOptima, Tienda.marca0);
 		}
-		if(Tienda.totalUnidadesVendidas0==Tienda.cantidadOptima){
+		if(Tienda.TotalUnidadesVendidas0==Tienda.cantidadOptima){
 			c++;
-			imprimirIgualVentaOptima(Tienda.totalUnidadesVendidas0, Tienda.cantidadOptima, Tienda.marca0);
+			imprimirIgualVentaOptima(Tienda.TotalUnidadesVendidas0, Tienda.cantidadOptima, Tienda.marca0);
 		}
-		if(Tienda.totalUnidadesVendidas1>Tienda.cantidadOptima){
+		if(Tienda.TotalUnidadesVendidas1>Tienda.cantidadOptima){
 			c++;
-			imprimirMayorVentaOptima(Tienda.totalUnidadesVendidas1, Tienda.cantidadOptima, Tienda.marca1);
+			imprimirMayorVentaOptima(Tienda.TotalUnidadesVendidas1, Tienda.cantidadOptima, Tienda.marca1);
 		}
-		if(Tienda.totalUnidadesVendidas1==Tienda.cantidadOptima){
+		if(Tienda.TotalUnidadesVendidas1==Tienda.cantidadOptima){
 			c++;
-			imprimirIgualVentaOptima(Tienda.totalUnidadesVendidas1, Tienda.cantidadOptima, Tienda.marca1);
+			imprimirIgualVentaOptima(Tienda.TotalUnidadesVendidas1, Tienda.cantidadOptima, Tienda.marca1);
 		}
-		if(Tienda.totalUnidadesVendidas2>Tienda.cantidadOptima){
+		if(Tienda.TotalUnidadesVendidas2>Tienda.cantidadOptima){
 			c++;
-			imprimirMayorVentaOptima(Tienda.totalUnidadesVendidas2, Tienda.cantidadOptima, Tienda.marca2);
+			imprimirMayorVentaOptima(Tienda.TotalUnidadesVendidas2, Tienda.cantidadOptima, Tienda.marca2);
 		}
-		if(Tienda.totalUnidadesVendidas2==Tienda.cantidadOptima){
+		if(Tienda.TotalUnidadesVendidas2==Tienda.cantidadOptima){
 			c++;
-			imprimirIgualVentaOptima(Tienda.totalUnidadesVendidas2, Tienda.cantidadOptima, Tienda.marca2);
+			imprimirIgualVentaOptima(Tienda.TotalUnidadesVendidas2, Tienda.cantidadOptima, Tienda.marca2);
 		}
-		if(Tienda.totalUnidadesVendidas3>Tienda.cantidadOptima){
+		if(Tienda.TotalUnidadesVendidas3>Tienda.cantidadOptima){
 			c++;
-			imprimirMayorVentaOptima(Tienda.totalUnidadesVendidas3, Tienda.cantidadOptima, Tienda.marca3);
+			imprimirMayorVentaOptima(Tienda.TotalUnidadesVendidas3, Tienda.cantidadOptima, Tienda.marca3);
 		}
-		if(Tienda.totalUnidadesVendidas3==Tienda.cantidadOptima){
+		if(Tienda.TotalUnidadesVendidas3==Tienda.cantidadOptima){
 			c++;
-			imprimirIgualVentaOptima(Tienda.totalUnidadesVendidas3, Tienda.cantidadOptima, Tienda.marca3);
-		}if(Tienda.totalUnidadesVendidas4>Tienda.cantidadOptima){
+			imprimirIgualVentaOptima(Tienda.TotalUnidadesVendidas3, Tienda.cantidadOptima, Tienda.marca3);
+		}if(Tienda.TotalUnidadesVendidas4>Tienda.cantidadOptima){
 			c++;
-			imprimirMayorVentaOptima(Tienda.totalUnidadesVendidas4, Tienda.cantidadOptima, Tienda.marca4);
+			imprimirMayorVentaOptima(Tienda.TotalUnidadesVendidas4, Tienda.cantidadOptima, Tienda.marca4);
 		}
-		if(Tienda.totalUnidadesVendidas4==Tienda.cantidadOptima){
+		if(Tienda.TotalUnidadesVendidas4==Tienda.cantidadOptima){
 			c++;
-			imprimirIgualVentaOptima(Tienda.totalUnidadesVendidas4, Tienda.cantidadOptima, Tienda.marca4);
+			imprimirIgualVentaOptima(Tienda.TotalUnidadesVendidas4, Tienda.cantidadOptima, Tienda.marca4);
 		}
 		if(c==0) imprimir("No existen marcas con venta óptima");
 	}

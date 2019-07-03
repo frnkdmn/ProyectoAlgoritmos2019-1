@@ -72,27 +72,27 @@ public class DialogoGenerarReportes extends JDialog implements ActionListener, I
 		scrollPane.setViewportView(txtS);
 		imprimir("Ventas por colchón" + "\n");
 		imprimir("Marcas			: Suavestar");
-		imprimir("Cantidad de ventas		: "+Tienda.ventas0);
-		imprimir("Cantidad total de unidades vendidas 	: "+Tienda.totalUnidadesVendidas0);
-		imprimir("Importente total acumulado		: "+String.format("%.2f",Tienda.importeTotal0) +"\n");
+		imprimir("Cantidad de ventas		: "+Tienda.Ventas0);
+		imprimir("Cantidad total de unidades vendidas 	: "+Tienda.TotalUnidadesVendidas0);
+		imprimir("Importente total acumulado		: "+Tienda.ImporteTotal0 +"\n");
 		imprimir("Marcas			: Springwall");
-		imprimir("Cantidad de ventas		: "+Tienda.ventas1);
-		imprimir("Cantidad total de unidades vendidas 	: "+Tienda.totalUnidadesVendidas1);
-		imprimir("Importente total acumulado		: "+String.format("%.2f",Tienda.importeTotal1) +"\n");
+		imprimir("Cantidad de ventas		: "+Tienda.Ventas1);
+		imprimir("Cantidad total de unidades vendidas 	: "+Tienda.TotalUnidadesVendidas1);
+		imprimir("Importente total acumulado		: "+Tienda.ImporteTotal1 +"\n");
 		imprimir("Marcas			: Paraiso");
-		imprimir("Cantidad de ventas		: "+Tienda.ventas2);
-		imprimir("Cantidad total de unidades vendidas 	: "+Tienda.totalUnidadesVendidas2);
-		imprimir("Importente total acumulado		: "+String.format("%.2f",Tienda.importeTotal2) +"\n");
+		imprimir("Cantidad de ventas		: "+Tienda.Ventas2);
+		imprimir("Cantidad total de unidades vendidas 	: "+Tienda.TotalUnidadesVendidas2);
+		imprimir("Importente total acumulado		: "+Tienda.ImporteTotal2 +"\n");
 		imprimir("Marcas			: Drimer");
-		imprimir("Cantidad de ventas		: "+Tienda.ventas3);
-		imprimir("Cantidad total de unidades vendidas 	: "+Tienda.totalUnidadesVendidas3);
-		imprimir("Importente total acumulado		: "+String.format("%.2f",Tienda.importeTotal3) +"\n");
+		imprimir("Cantidad de ventas		: "+Tienda.Ventas3);
+		imprimir("Cantidad total de unidades vendidas 	: "+Tienda.TotalUnidadesVendidas3);
+		imprimir("Importente total acumulado		: "+Tienda.ImporteTotal3 +"\n");
 		imprimir("Marcas			: Cisne");
-		imprimir("Cantidad de ventas		: "+Tienda.ventas4);
-		imprimir("Cantidad total de unidades vendidas 	: "+Tienda.totalUnidadesVendidas4);
-		imprimir("Importente total acumulado		: "+String.format("%.2f",Tienda.importeTotal4) +"\n");
-		imprimir("Importe total general acumulado	: "+String.format("%.2f",Tienda.importeTotalGeneral));
-		imprimir("Cantidad total general de ventas	: "+Tienda.ventasTotalGeneral);
+		imprimir("Cantidad de ventas		: "+Tienda.Ventas4);
+		imprimir("Cantidad total de unidades vendidas 	: "+Tienda.TotalUnidadesVendidas4);
+		imprimir("Importente total acumulado		: "+Tienda.ImporteTotal4 +"\n");
+		imprimir("Importe total general acumulado	: "+Tienda.ImporteTotalGeneral);
+		imprimir("Cantidad total general de ventas	: "+Tienda.CantidadTotalGeneral);
 	}
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == btnCerrar) {
@@ -138,27 +138,27 @@ public class DialogoGenerarReportes extends JDialog implements ActionListener, I
 		txtS.setText("");
 		imprimir("Ventas por colchón" + "\n");
 		imprimir("Marcas			: Suavestar");
-		imprimir("Cantidad de ventas		: " + Tienda.ventas0);
-		imprimir("Cantidad total de unidades vendidas 	: " + Tienda.totalUnidadesVendidas0);
-		imprimir("Importente total acumulado		: "+ String.format("%.2f",Tienda.importeTotal0)+"\n");
+		imprimir("Cantidad de ventas		: " + Tienda.Ventas0);
+		imprimir("Cantidad total de unidades vendidas 	: " + Tienda.TotalUnidadesVendidas0);
+		imprimir("Importente total acumulado		: "+ Tienda.ImporteTotal0+"\n");
 		imprimir("Marcas			: Springwall");
-		imprimir("Cantidad de ventas		: " + Tienda.ventas1);
-		imprimir("Cantidad total de unidades vendidas 	: " + Tienda.totalUnidadesVendidas1);
-		imprimir("Importente total acumulado		: "+ String.format("%.2f",Tienda.importeTotal1)+"\n");
+		imprimir("Cantidad de ventas		: " + Tienda.Ventas1);
+		imprimir("Cantidad total de unidades vendidas 	: " + Tienda.TotalUnidadesVendidas1);
+		imprimir("Importente total acumulado		: "+ Tienda.ImporteTotal1+"\n");
 		imprimir("Marcas			: Paraiso");
-		imprimir("Cantidad de ventas		: " + Tienda.ventas2);
-		imprimir("Cantidad total de unidades vendidas 	: " + Tienda.totalUnidadesVendidas2);
-		imprimir("Importente total acumulado		: "+ String.format("%.2f",Tienda.importeTotal2)+"\n");
+		imprimir("Cantidad de ventas		: " + Tienda.Ventas2);
+		imprimir("Cantidad total de unidades vendidas 	: " + Tienda.TotalUnidadesVendidas2);
+		imprimir("Importente total acumulado		: "+ Tienda.ImporteTotal2+"\n");
 		imprimir("Marcas			: Drimer");
-		imprimir("Cantidad de ventas		: " + Tienda.ventas3);
-		imprimir("Cantidad total de unidades vendidas 	: " + Tienda.totalUnidadesVendidas3);
-		imprimir("Importente total acumulado		: "+ String.format("%.2f",Tienda.importeTotal3)+"\n");
+		imprimir("Cantidad de ventas		: " + Tienda.Ventas3);
+		imprimir("Cantidad total de unidades vendidas 	: " + Tienda.TotalUnidadesVendidas3);
+		imprimir("Importente total acumulado		: "+ Tienda.ImporteTotal3+"\n");
 		imprimir("Marcas			: Cisne");
-		imprimir("Cantidad de ventas		: " + Tienda.ventas4);
-		imprimir("Cantidad total de unidades vendidas 	: " + Tienda.totalUnidadesVendidas4);
-		imprimir("Importente total acumulado		: "+ String.format("%.2f",Tienda.importeTotal4)+"\n");
-		imprimir("Importe total general acumulado	: " + String.format("%.2f",Tienda.importeTotalGeneral));
-		imprimir("Cantidad total general de ventas	: " + Tienda.ventasTotalGeneral);
+		imprimir("Cantidad de ventas		: " + Tienda.Ventas4);
+		imprimir("Cantidad total de unidades vendidas 	: " + Tienda.TotalUnidadesVendidas4);
+		imprimir("Importente total acumulado		: "+ Tienda.ImporteTotal4+"\n");
+		imprimir("Importe total general acumulado	: " + Tienda.ImporteTotalGeneral);
+		imprimir("Cantidad total general de ventas	: " + Tienda.CantidadTotalGeneral);
 	}
 	void imprimirMayorVentaOptima(int total,int optimo,String colchon){
 			imprimir("Marca			: "+colchon);
@@ -174,44 +174,30 @@ public class DialogoGenerarReportes extends JDialog implements ActionListener, I
 		txtS.setText("");
 		int c=0;
 		imprimir("Colchones con venta óptima" + "\n");
-		if(Tienda.totalUnidadesVendidas0>Tienda.cantidadOptima){
+		if(Tienda.TotalUnidadesVendidas0>Tienda.cantidadOptima) {
 			c++;
-			imprimirMayorVentaOptima(Tienda.totalUnidadesVendidas0, Tienda.cantidadOptima, Tienda.marca0);
+			imprimirMayorVentaOptima(Tienda.TotalUnidadesVendidas0, Tienda.cantidadOptima, Tienda.marca0);
 		}
-		if(Tienda.totalUnidadesVendidas0==Tienda.cantidadOptima){
+		if(Tienda.TotalUnidadesVendidas0==Tienda.cantidadOptima)
+		if(Tienda.TotalUnidadesVendidas1>=Tienda.cantidadOptima) {
 			c++;
-			imprimirIgualVentaOptima(Tienda.totalUnidadesVendidas0, Tienda.cantidadOptima, Tienda.marca0);
+			imprimir("Marca			: Springwall");
+			imprimir("Cantidad total de unidades vendidas	: "+Tienda.TotalUnidadesVendidas1 +" ("+(Tienda.TotalUnidadesVendidas1-Tienda.cantidadOptima)+" más que la cantidad óptima)" + "\n");
 		}
-		if(Tienda.totalUnidadesVendidas1>Tienda.cantidadOptima){
+		if(Tienda.TotalUnidadesVendidas2>=Tienda.cantidadOptima) {
 			c++;
-			imprimirMayorVentaOptima(Tienda.totalUnidadesVendidas1, Tienda.cantidadOptima, Tienda.marca1);
+			imprimir("Marca			: Paraiso");
+			imprimir("Cantidad total de unidades vendidas	: "+Tienda.TotalUnidadesVendidas2 +" ("+(Tienda.TotalUnidadesVendidas2-Tienda.cantidadOptima)+" más que la cantidad óptima)" + "\n");
 		}
-		if(Tienda.totalUnidadesVendidas1==Tienda.cantidadOptima){
+		if(Tienda.TotalUnidadesVendidas3>=Tienda.cantidadOptima) {
 			c++;
-			imprimirIgualVentaOptima(Tienda.totalUnidadesVendidas1, Tienda.cantidadOptima, Tienda.marca1);
+			imprimir("Marca			: Drimer");
+			imprimir("Cantidad total de unidades vendidas	: "+Tienda.TotalUnidadesVendidas3 +" ("+(Tienda.TotalUnidadesVendidas3-Tienda.cantidadOptima)+" más que la cantidad óptima)" + "\n");
 		}
-		if(Tienda.totalUnidadesVendidas2>Tienda.cantidadOptima){
+		if(Tienda.TotalUnidadesVendidas4>=Tienda.cantidadOptima) {
 			c++;
-			imprimirMayorVentaOptima(Tienda.totalUnidadesVendidas2, Tienda.cantidadOptima, Tienda.marca2);
-		}
-		if(Tienda.totalUnidadesVendidas2==Tienda.cantidadOptima){
-			c++;
-			imprimirIgualVentaOptima(Tienda.totalUnidadesVendidas2, Tienda.cantidadOptima, Tienda.marca2);
-		}
-		if(Tienda.totalUnidadesVendidas3>Tienda.cantidadOptima){
-			c++;
-			imprimirMayorVentaOptima(Tienda.totalUnidadesVendidas3, Tienda.cantidadOptima, Tienda.marca3);
-		}
-		if(Tienda.totalUnidadesVendidas3==Tienda.cantidadOptima){
-			c++;
-			imprimirIgualVentaOptima(Tienda.totalUnidadesVendidas3, Tienda.cantidadOptima, Tienda.marca3);
-		}if(Tienda.totalUnidadesVendidas4>Tienda.cantidadOptima){
-			c++;
-			imprimirMayorVentaOptima(Tienda.totalUnidadesVendidas4, Tienda.cantidadOptima, Tienda.marca4);
-		}
-		if(Tienda.totalUnidadesVendidas4==Tienda.cantidadOptima){
-			c++;
-			imprimirIgualVentaOptima(Tienda.totalUnidadesVendidas4, Tienda.cantidadOptima, Tienda.marca4);
+			imprimir("Marca			: Cisne");
+			imprimir("Cantidad total de unidades vendidas	: "+Tienda.TotalUnidadesVendidas4 +" ("+(Tienda.TotalUnidadesVendidas4-Tienda.cantidadOptima)+" más que la cantidad óptima)" + "\n");
 		}
 		if(c==0) imprimir("No existen marcas con venta óptima");
 	}

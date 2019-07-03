@@ -79,11 +79,11 @@ public class Tienda extends JFrame implements ActionListener {
 	public static String premioSorpresa = "Un polo";
 	// Contadores y Acumuladores
 	public static int numeroCliente;
-	public static int ventas0,ventas1,ventas2,ventas3,ventas4;
-	public static int totalUnidadesVendidas0,totalUnidadesVendidas1,totalUnidadesVendidas2,totalUnidadesVendidas3,totalUnidadesVendidas4;
-	public static double importeTotal0,importeTotal1,importeTotal2,importeTotal3,importeTotal4;
-	public static double importeTotalGeneral;
-	public static int ventasTotalGeneral;
+	public static int Ventas0,Ventas1,Ventas2,Ventas3,Ventas4;
+	public static int TotalUnidadesVendidas0,TotalUnidadesVendidas1,TotalUnidadesVendidas2,TotalUnidadesVendidas3,TotalUnidadesVendidas4;
+	public static double ImporteTotal0,ImporteTotal1,ImporteTotal2,ImporteTotal3,ImporteTotal4;
+	public static double ImporteTotalGeneral;
+	public static int CantidadTotalGeneral;
 	/**
 	 * Launch the application.
 	 */
